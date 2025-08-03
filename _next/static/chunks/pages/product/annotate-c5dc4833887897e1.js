@@ -1,0 +1,1 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[8968],{46068:(_,n,u)=>{(window.__NEXT_P=window.__NEXT_P||[]).push(["/product/annotate",function(){return u(12275)}])}},_=>{var n=n=>_(_.s=n);_.O(0,[8220,430,3817,385,8853,4587,7126,3341,2980,7835,2275,636,6593,8792],()=>n(46068)),_N_E=_.O()}]);

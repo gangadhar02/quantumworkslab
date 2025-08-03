@@ -1,0 +1,1 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[3070],{64260:(_,n,u)=>{(window.__NEXT_P=window.__NEXT_P||[]).push(["/product/model/foundry-models/[id]",function(){return u(20038)}])}},_=>{var n=n=>_(_.s=n);_.O(0,[8220,430,3817,385,8853,4587,8789,3341,1907,38,636,6593,8792],()=>n(64260)),_N_E=_.O()}]);

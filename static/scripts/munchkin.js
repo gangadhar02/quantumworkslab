@@ -1,0 +1,1 @@
+Munchkin.init('622-PVG-762', {"wsInfo":"j1RQ"});
