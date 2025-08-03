@@ -1,0 +1,11 @@
+/* CSS to disable JavaScript-generated footer */
+footer[class*="Footer__StyledFooter"],
+footer[class*="eJChXt"],
+footer[class*="footer-disabled-by-static-html"] {
+    display: none !important;
+}
+
+/* Ensure our static HTML footer is visible */
+footer.footer {
+    display: block !important;
+}
