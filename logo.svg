@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-  <defs>
-    <linearGradient id="lionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff6600;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ff3333;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-  <path d="M100 20 C140 20 170 50 170 90 C170 140 140 170 100 170 C60 170 30 140 30 90 C30 50 60 20 100 20 Z M70 70 C65 65 55 65 50 70 C45 75 45 85 50 90 C55 95 65 95 70 90 L80 80 Z M130 70 L120 80 C125 85 135 85 140 80 C145 75 145 65 140 60 C135 55 125 55 120 60 Z M100 100 L90 110 L100 120 L110 110 Z M80 130 C80 140 90 145 100 145 C110 145 120 140 120 130 Z" fill="url(#lionGradient)" />
-</svg>
