@@ -1,0 +1,161 @@
+/* Override any existing footer styles and ensure visibility */
+footer.footer {
+    background-color: #ffffff !important;
+    padding: 100px 0 40px 0 !important;
+    border-top: 1px solid #e5e7eb !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 1 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    min-height: auto !important;
+}
+
+footer.footer .footer-container {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 24px !important;
+    display: block !important;
+}
+
+footer.footer .footer-content {
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 40px !important;
+    margin-bottom: 60px !important;
+}
+
+footer.footer .footer-section h6 {
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    margin-bottom: 20px !important;
+    color: #1f2937 !important;
+    display: block !important;
+}
+
+footer.footer .footer-section ul {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+}
+
+footer.footer .footer-section ul li {
+    margin-bottom: 12px !important;
+    display: block !important;
+}
+
+footer.footer .footer-section ul li a {
+    color: #49535F !important;
+    text-decoration: none !important;
+    font-size: 16px !important;
+    transition: color 0.3s ease !important;
+    display: inline-block !important;
+}
+
+footer.footer .footer-section ul li a:hover {
+    color: #2876D4 !important;
+}
+
+footer.footer .footer-bottom {
+    text-align: center !important;
+    padding-top: 40px !important;
+    border-top: 1px solid #e5e7eb !important;
+    display: block !important;
+}
+
+footer.footer .footer-logo {
+    margin-bottom: 20px !important;
+    display: block !important;
+}
+
+footer.footer .footer-logo img {
+    height: 36px !important;
+    width: auto !important;
+    display: inline-block !important;
+}
+
+footer.footer .footer-copyright {
+    font-family: 'IBM Plex Mono', monospace !important;
+    font-size: 14px !important;
+    color: #1f2937 !important;
+    margin-bottom: 20px !important;
+    display: block !important;
+}
+
+footer.footer .footer-links {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 16px !important;
+    flex-wrap: wrap !important;
+}
+
+footer.footer .footer-links a {
+    color: #49535F !important;
+    text-decoration: none !important;
+    font-family: 'IBM Plex Mono', monospace !important;
+    font-size: 14px !important;
+    transition: color 0.3s ease !important;
+    display: inline-block !important;
+}
+
+footer.footer .footer-links a:hover {
+    color: #2876D4 !important;
+}
+
+footer.footer .footer-divider {
+    width: 1px !important;
+    height: 16px !important;
+    background-color: #e5e7eb !important;
+    margin: 0 8px !important;
+    display: inline-block !important;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    footer.footer .footer-content {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 30px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    footer.footer .footer-content {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 24px !important;
+    }
+    
+    footer.footer {
+        padding: 60px 0 30px 0 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    footer.footer .footer-content {
+        grid-template-columns: 1fr !important;
+        text-align: center !important;
+    }
+    
+    footer.footer .footer-links {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 12px !important;
+    }
+    
+    footer.footer .footer-divider {
+        display: none !important;
+    }
+}
+
+/* Hide any duplicate footers */
+footer.footer + footer.footer {
+    display: none !important;
+}
+
+/* Ensure the footer is not hidden by other elements */
+footer.footer {
+    clear: both !important;
+    overflow: visible !important;
+} 
