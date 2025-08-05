@@ -228,89 +228,7 @@ const t={preserveBehavior:!1},e=e=>{if("string"==typeof e)return[e,t];const[n,r=
 <link rel="stylesheet" href="fix-footer-visibility.css">
 </head><body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXF2T87" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><div id="__next"><main><div class="Layout__Wrapper-sc-jbj1sg-0 kDcKSx transition-all duration-300 ease-in undefined  overflow"><div class=""></div><div class="HeaderMobile__Outer-sc-1yu1mfn-0 hgDgWF"><div class="HeaderMobile__Wrapper-sc-1yu1mfn-1 iPVOAg lg:w-[88vw] max-w-6xl lg:max-w-8xl m-auto px-6"><a href="../../index.html"><img width="106" height="24" alt="logo" src="../../static/images/logo-v4.svg"/></a><div class="BurgerIcon__Wrapper-sc-1rg1iu4-0 jsdymq"><div id="one"></div><div id="two"></div><div id="three"></div></div></div></div><main class="id__ImageModal-sc-1ct5gml-1 kUXEED"><div id="image-viewer"><span class="close">×</span><img class="modal-content" id="full-image"/></div></main><div class="py-12 lg:w-[88vw] max-w-6xl lg:max-w-8xl m-auto px-6"><div class="grid grid-cols-12 "><div class="col-span-12 md:col-span-3 lg:col-span-2"><div class="sticky top-24"><img src="../../static/images/guide.svg" class="h-10"/><a href="../index.html" class="flex text-md align-items-center mt-6"><img src="../../static/images/leftarrow.svg" class="img-fluid mr-2"/>All guides</a><main class="id__TocContainer-sc-1ct5gml-2 cwKcJJ toc-container py-8"><div class="  js-toc"></div></main></div></div><div class="col-span-12 md:col-span-9 lg:col-span-10"><div class="md:px-24 mb-12"><div class=""><h1 class="md:text-6xl lg:text-7xl font-future text-neutral-900 dark:text-neutral-50 text-2xl md:!text-4xl font-bold max-w-3xl mb-12" style="font-feature-settings:unset">How to evaluate and optimize your data labeling project&#x27;s results</h1></div><img class="img-fluid rounded-lg" src="../../../labelbox-guides.ghost.io/content/images/2023/01/Group-2977--3-.png"/></div><main class="id__PostContentWrapper-sc-1ct5gml-0 giShFC md:px-24"><div class="content js-toc-content"><p>Leading machine learning teams establish high quality labeling workflows by starting with <a href="../how-to-scale-up-your-labeling-operations-while-maintaining-quality/index.html">small iterative batches</a> to develop an effective feedback loop with labeling teams early on in the process. This approach allows ML teams to quickly identify issues and make necessary changes to their labeling instructions and ontologies, enabling labeling teams to become more proficient with the task before large volumes of data are labeled. Following this waterfall approach, teams are able to generate higher quality labeled data quickly and at scale. </p><p>After a task has been completed and an ML team has entered into the production phase, it's important to evaluate and consider several factors that can guide you toward greater optimization of future batches. </p><hr><h2 id="what-should-ml-teams-consider-once-a-labeling-project-is-complete">What should ML teams consider once a labeling project is complete? </h2><h3 id="feedback-from-labelers">Feedback from labelers</h3><p>After project completion, you should consider sourcing feedback from your labelers. Machine learning teams often benefit from asking labelers to share their thoughts on the given labeling task to better understand what was challenging, to discover edge cases, and receive suggestions on how to improve efficiency. </p><p>A great way to crowdsource this feedback is through Quantumworks Lab's <a href="https://docs.labelbox.com/docs/issues-comments">issues &amp; comments</a> feature that can be used on individual data rows. This allows the labeling team and your ML team to collaborate and provide feedback on specific examples or assets. <a href="https://docs.labelbox.com/docs/boost-workforce-notifications">Updates</a> within a project can also be used to provide more holistic feedback on the project – enabling three-way communication between you, the Quantumworks Lab Boost admin, and the labeling workforce. Lastly, you can also rely on shared Google Docs and team syncs to collect feedback from the labeling team. </p><h3 id="labeling-instructions-and-ontology-changes">Labeling instructions and ontology changes</h3><p>After a project has been completed, you can review project results and labeler performance to pinpoint areas for improving your labeling instructions or ontology. </p><p>Questions that you can consider during review include: </p><ul><li>Do the results of the project show any areas of labeling uncertainty that can be improved by editing the task's instructions?</li></ul><p><strong><em>Tip:</em><em> </em></strong>Creating category definitions that are mutually exclusive can improve labeling team alignment and reduce the chance of confusion between object types. </p><p><strong><em>Tip:</em><em> </em></strong>Adding numbered steps can be a great way to organize complex labeling tasks. </p><p><strong><em>Tip:</em><em> </em></strong>Including decision trees and rule of thumb guidance can be helpful for subjective tasks that require critical thinking. </p><ul><li>Do project results reveal opportunities for improving ontology structure? </li></ul><p><strong><em>Tip:</em></strong> Think about if the ontology is organized in the most efficient manner. For instance, can the labeling time can be improved using nested classifications vs having a list of single objects?</p><p><strong><em>Tip: </em></strong>Review whether the ontology includes too many objects or too few objects to achieve project goals.</p><p><strong><em>Tip:</em></strong> If warranted, share the "why" behind your ontology requirements or provide additional project context to help labelers better contextualize tasks. </p><h3 id="improve-your-data-selection">Improve your data selection </h3><figure class="kg-card kg-image-card"><img src="../../../labelbox-guides.ghost.io/content/images/2023/01/catalog-06--1-.png" class="kg-image" alt="" loading="lazy" width="1344" height="1024" srcset="https://labelbox-guides.ghost.io/content/images/size/w600/2023/01/catalog-06--1-.png 600w, https://labelbox-guides.ghost.io/content/images/size/w1000/2023/01/catalog-06--1-.png 1000w, https://labelbox-guides.ghost.io/content/images/2023/01/catalog-06--1-.png 1344w" sizes="(min-width: 720px) 720px"></figure><p>After the successful completion of a labeling project, it can be tempting to proceed by creating projects or batches of even larger datasets to label. However, to make sure that you're training your model on the most impactful examples, you can leverage Quantumworks Lab's <a href="https://docs.labelbox.com/docs/catalog-overview">Catalog</a> and <a href="https://docs.labelbox.com/docs/models-overview">Model</a> to curate and prioritize future batches. </p><p>With Catalog and Model, you can quickly identify label and model errors, find all instances of similar data to edge cases or mislabeled data rows and send them to Annotate in order to retrain your model on specific slices of data. Smartly selecting high value data to label in priority is key to maximizing labeling efficiency and reduce project costs. </p><p>Refer to the below guides and resources to learn more about how to improve data selection with Quantumworks Lab: </p><ul><li><a href="../how-to-search-surface-and-prioritize-data-within-a-project/index.html">How to search, surface, and prioritize data within a project</a></li><li><a href="https://docs.labelbox.com/docs/active-learning">How to prioritize high-value data</a></li><li><a href="../how-to-find-and-fix-label-errors/index.html">How to find and fix label errors</a></li><li><a href="../how-to-find-and-fix-model-errors/index.html">How to find and fix model errors</a></li><li><a href="../how-to-find-similar-data-in-one-click/index.html">How to find similar data in one click</a></li></ul><h3 id="review-your-quality-strategy">Review your quality strategy</h3><figure class="kg-card kg-image-card"><img src="../../../labelbox-guides.ghost.io/content/images/2023/01/workflow--3-.png" class="kg-image" alt="" loading="lazy" width="1360" height="1024" srcset="https://labelbox-guides.ghost.io/content/images/size/w600/2023/01/workflow--3-.png 600w, https://labelbox-guides.ghost.io/content/images/size/w1000/2023/01/workflow--3-.png 1000w, https://labelbox-guides.ghost.io/content/images/2023/01/workflow--3-.png 1360w" sizes="(min-width: 720px) 720px"></figure><p>One key area to review after the completion of a project is how well your <a href="../how-to-create-a-quality-strategy-for-your-data-labeling-project/index.html">quality assurance strategy</a> performed. ML teams will benefit from asking the following:</p><ul><li>If <a href="https://docs.labelbox.com/docs/consensus">consensus</a> was used on the project, were there enough votes to provide sufficient insights?</li><li>Was the number of <a href="https://docs.labelbox.com/docs/benchmarks">benchmarks</a> used or was the percentage of consensus coverage applied sufficient to assess performance across the dataset?</li><li>Were the benchmark or consensus agreement results as expected, or lower than anticipated?</li></ul><p><strong><em>Tip:</em></strong> If consensus scores are consistently high or do not provide additional valuable insights, consider lowering the number of votes, coverage percentage, or removing altogether to reduce labeling time.</p><ul><li>If using SLAs, how well were expectations and requirements met?</li></ul><p>Your team should also assess how well the labeling review process was. If you notice areas for improvement or the need for customization to improve review efficiency, you can customize your review step with <a href="https://docs.labelbox.com/docs/workflows">workflows</a>. </p><p>To learn more about workflows, read our guide, <a href="../how-to-customize-your-annotation-review-process/index.html">How to customize your annotation review process</a></p><h3 id="labeling-team-size-and-skillset">Labeling team size and skillset</h3><p>Evaluating the size and makeup of the labeling team is important at every phase of your labeling operations. At the end of a project, it's recommended that you review whether the labeling team size was too small to meet the desired production capability or too large for the required volume. Additionally, it is key for teams to consider whether future batches of data will require labelers with specialized training (such as having industry-specific or language experience). </p><p>Keeping communication open with the labeling team is also crucial during these considerations. This is especially important when working with external labeling teams, who often benefit from having advance notice of any new batches or changing requirements so that they can effectively allocate or maintain their resources. </p><p>Clear and timely communication of future project needs, such as the anticipated readiness of the next project or batch, the expected size of the dataset, changes to the instructions or labeling requirements, and ideal completion dates, should be communicated to help ensure a smooth ramp up on the next project. </p><p>You can easily access data labeling services with specialized expertise that are fit for your specific use case through <a href="../../product/boost/index.html">Quantumworks Lab Boost</a>. Collaborate with the workforce in real-time to monitor high-quality data,, all while managing and keeping human labeling costs to a minimum using AI-assisted tools and automation techniques. </p><p><a href="../../sales/index.html">Contact our Boost team</a> to get paired with a specialized workforce team or learn more about how one of our customers, NASA's Jet Propulsion Laboratory, used <a href="../../customers/nasa-jpl/index.html">Quantumworks Lab Boost to deliver quality labels at 5x their previous speed</a>. </p></div></main></div></div></div><div class="mt-5 lg:w-[88vw] max-w-6xl lg:max-w-8xl m-auto px-6"><div class="my-20 w-full h-[1px] bg-neutral-200"></div><div class=""><div class=""><h2 class="mb-12 text-center text-3xl md:text-4xl font-medium">Continue reading</h2></div><div class="flex flex-wrap justify-content-center"><div class="max-w-md mx-2 "><div class="h-100"><div class="bg-transparent rounded-lg h-100 flex flex-col"><a href="../labelbox-leaderboards-redefining-ai-evaluation-with-human-assessments/index.html" target="_self" class="relative aspect-video  undefined border border-neutral-200 rounded-lg"><img loading="lazy" decoding="async" data-nimg="fill" class="rounded-lg " style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;object-fit:cover;object-position:center;color:transparent" sizes="100vw" srcSet="/_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2025%2F06%2Fguide_LeaderboxHero2.png&amp;w=640&amp;q=70 640w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2025%2F06%2Fguide_LeaderboxHero2.png&amp;w=750&amp;q=70 750w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2025%2F06%2Fguide_LeaderboxHero2.png&amp;w=828&amp;q=70 828w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2025%2F06%2Fguide_LeaderboxHero2.png&amp;w=1080&amp;q=70 1080w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2025%2F06%2Fguide_LeaderboxHero2.png&amp;w=1200&amp;q=70 1200w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2025%2F06%2Fguide_LeaderboxHero2.png&amp;w=1920&amp;q=70 1920w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2025%2F06%2Fguide_LeaderboxHero2.png&amp;w=2048&amp;q=70 2048w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2025%2F06%2Fguide_LeaderboxHero2.png&amp;w=3840&amp;q=70 3840w" src="../../_next/image/indexa17d.html?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2025%2F06%2Fguide_LeaderboxHero2.png&amp;w=3840&amp;q=70"/></a><div class="py-6 px-1 flex flex-col flex-grow justify-content-between"><div><a href="../labelbox-leaderboards-redefining-ai-evaluation-with-human-assessments/index.html"><p class="text-xl lg:text-2xl leading-6 lg:leading-9 mb-2 max-w-3xl font-bold ">Quantumworks Lab Leaderboards: Redefining AI evaluations with human-centric assessments</p><p class="text-base max-w-2xl undefined line-clamp-3">Introducing our groundbreaking Quantumworks Lab Leaderboards: an innovative, scientific process to rank multimodal AI models that goes beyond conventional benchmarks.</p></a></div></div></div></div></div><div class="max-w-md mx-2 "><div class="h-100"><div class="bg-transparent rounded-lg h-100 flex flex-col"><a href="../programmatically-launch-human-data-jobs-for-rlhf-and-evaluation/index.html" target="_self" class="relative aspect-video  undefined border border-neutral-200 rounded-lg"><img loading="lazy" decoding="async" data-nimg="fill" class="rounded-lg " style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;object-fit:cover;object-position:center;color:transparent" sizes="100vw" srcSet="/_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-26-at-2.03.08-PM.png&amp;w=640&amp;q=70 640w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-26-at-2.03.08-PM.png&amp;w=750&amp;q=70 750w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-26-at-2.03.08-PM.png&amp;w=828&amp;q=70 828w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-26-at-2.03.08-PM.png&amp;w=1080&amp;q=70 1080w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-26-at-2.03.08-PM.png&amp;w=1200&amp;q=70 1200w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-26-at-2.03.08-PM.png&amp;w=1920&amp;q=70 1920w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-26-at-2.03.08-PM.png&amp;w=2048&amp;q=70 2048w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-26-at-2.03.08-PM.png&amp;w=3840&amp;q=70 3840w" src="../../_next/image/indexbb2a.html?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-26-at-2.03.08-PM.png&amp;w=3840&amp;q=70"/></a><div class="py-6 px-1 flex flex-col flex-grow justify-content-between"><div><a href="../programmatically-launch-human-data-jobs-for-rlhf-and-evaluation/index.html"><p class="text-xl lg:text-2xl leading-6 lg:leading-9 mb-2 max-w-3xl font-bold ">Programmatically launch human data jobs for RLHF and evaluation</p><p class="text-base max-w-2xl undefined line-clamp-3">Learn how to harness the SDK to manage human data labeling jobs for RLHF and model evaluation. With just a few steps, you can set up the SDK, import various types of data, and launch, monitor, and export labeling projects programmatically, all while ensuring data quality and scalability.</p></a></div></div></div></div></div><div class="max-w-md mx-2 "><div class="h-100"><div class="bg-transparent rounded-lg h-100 flex flex-col"><a href="../evaluating-leading-text-to-speech-models/index.html" target="_self" class="relative aspect-video  undefined border border-neutral-200 rounded-lg"><img loading="lazy" decoding="async" data-nimg="fill" class="rounded-lg " style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;object-fit:cover;object-position:center;color:transparent" sizes="100vw" srcSet="/_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-17-at-12.12.46-PM.png&amp;w=640&amp;q=70 640w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-17-at-12.12.46-PM.png&amp;w=750&amp;q=70 750w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-17-at-12.12.46-PM.png&amp;w=828&amp;q=70 828w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-17-at-12.12.46-PM.png&amp;w=1080&amp;q=70 1080w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-17-at-12.12.46-PM.png&amp;w=1200&amp;q=70 1200w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-17-at-12.12.46-PM.png&amp;w=1920&amp;q=70 1920w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-17-at-12.12.46-PM.png&amp;w=2048&amp;q=70 2048w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-17-at-12.12.46-PM.png&amp;w=3840&amp;q=70 3840w" src="../../_next/image/index6ff8.html?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-17-at-12.12.46-PM.png&amp;w=3840&amp;q=70"/></a><div class="py-6 px-1 flex flex-col flex-grow justify-content-between"><div><a href="../evaluating-leading-text-to-speech-models/index.html"><p class="text-xl lg:text-2xl leading-6 lg:leading-9 mb-2 max-w-3xl font-bold ">Evaluating leading text-to-speech models</p><p class="text-base max-w-2xl undefined line-clamp-3">Discover how to employ a more comprehensive approach to evaluating leading text-to-speech models using both human preference ratings and automated evaluation techniques.</p></a></div></div></div></div></div></div></div></div><div class=""><div class="my-24 w-full h-[1px] bg-neutral-200"></div><section id="start-for-free-footer" class="
       max-w-xl
-      m-auto flex flex-col gap-4 items-center justify-items-center text-center"><div class="Footer__FooterSection-sc-172m51x-0 cKNvnl flex flex-col gap-y-6 justify-center"><div class="w-160 m-auto pb-10"></div><h2 class="font-medium text-4xl sm:text-5xl lg:text-6xl  text-neutral-900 font-future">Try Quantumworks Lab today</h2><p class="text-neutral-500 font-medium  text-lg md:text-xl max-w-3xl m-auto">Get started for free or see how Quantumworks Lab can fit your specific needs by <a href="../../sales/index.html">requesting a demo</a></p></div><a href="https://app.labelbox.com/signup" class="group transition-all inline-flex justify-center items-center gap-[.5em] lb-button !outline-none focus:!outline-none focus-visible:!outline-none focus:!shadow-none focus:!drop-shadow-none active:shadow-none w-fit text-xl py-4 px-6 rounded-xl font-medium leading-[32px] bg-neutral-800 mix-blend-multiply hover:bg-black dark:bg-neutral-50 text-neutral-50 dark:text-neutral-900 mt-6" id="" target="_self" style="outline:0 !important">Start for free</a></section></div><footer class="footer">
-        <div class="footer-container">
-            <div class="footer-content">
-                <!-- Product Section -->
-                <div class="footer-section">
-                    <h6>Product</h6>
-                    <ul>
-                        <li><a href="/product/platform/">Platform</a></li>
-                        <li><a href="/product/model/foundry-models/">Model Foundry</a></li>
-                        <li><a href="/product-demos/">Product Demos</a></li>
-                        <li><a href="/recorded-demo/">Recorded Demo</a></li>
-                    </ul>
-                </div>
-
-                <!-- Solutions Section -->
-                <div class="footer-section">
-                    <h6>Solutions</h6>
-                    <ul>
-                        <li><a href="/solutions/computer-vision/">Computer Vision</a></li>
-                        <li><a href="/solutions/natural-language-processing/">Natural Language Processing</a></li>
-                        <li><a href="/solutions/complex-reasoning/">Complex Reasoning</a></li>
-                        <li><a href="/solutions/multimodal-reasoning/">Multimodal Reasoning</a></li>
-                        <li><a href="/solutions/coding-tasks/">Coding</a></li>
-                        <li><a href="/solutions/multilingual/">Multilingual</a></li>
-                        <li><a href="/solutions/text-to-audio/">Audio</a></li>
-                    </ul>
-                </div>
-
-                <!-- Learn Section (Resources) -->
-                <div class="footer-section">
-                    <h6>Learn</h6>
-                    <ul>
-                        <li><a href="/blog/">Blog</a></li>
-                        <li><a href="/guides/">Guides</a></li>
-                        <li><a href="https://docs.labelbox.com" target="_blank">Docs</a></li>
-                        <li><a href="/faqs/">FAQs</a></li>
-                        <li><a href="/research/">Research</a></li>
-                        <li><a href="/product/model/foundry-models/">Models</a></li>
-                        <li><a href="/datasets/">Public datasets</a></li>
-                    </ul>
-                </div>
-
-                <!-- Company Section -->
-                <div class="footer-section">
-                    <h6>Company</h6>
-                    <ul>
-                        <li><a href="/company/about/">About</a></li>
-                        <li><a href="/company/security/">Privacy & Security</a></li>
-                        <li><a href="https://alignerr.com" target="_blank">Alignerr</a></li>
-                    </ul>
-                </div>
-
-                <!-- Data Factory Section -->
-                <div class="footer-section">
-                    <h6>The data factory</h6>
-                    <ul>
-                        <li><a href="/why-labelbox/">Why Quantumworks Lab</a></li>
-                        <li><a href="/services/labeling/">Labeling Services</a></li>
-                        <li><a href="/services/alignerr-connect/">Alignerr Connect</a></li>
-                        <li><a href="/model-foundry/">Model Foundry</a></li>
-                        <li><a href="/leaderboards/">Leaderboards</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <div class="footer-logo">
-                    <img src="static/images/favicon-v4-black.png" alt="Quantumworks Lab logo" loading="lazy" height="36" width="36">
-                </div>
-                <div class="footer-copyright">
-                    © Quantumworks Lab, Inc<br>
-                    We enable breakthroughs
-                </div>
-                <div class="footer-links">
-                    <a href="https://docs.labelbox.com/page/terms-of-service" target="_blank">Terms of Service</a>
-                    <div class="footer-divider"></div>
-                    <a href="https://docs.labelbox.com/page/privacy-notice" target="_blank">Privacy Notice</a>
-                    <div class="footer-divider"></div>
-                    <a href="https://docs.labelbox.com/page/copyright-dispute-policy" target="_blank">Copyright Dispute Policy</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+      m-auto flex flex-col gap-4 items-center justify-items-center text-center"><div class="Footer__FooterSection-sc-172m51x-0 cKNvnl flex flex-col gap-y-6 justify-center"><div class="w-160 m-auto pb-10"></div><h2 class="font-medium text-4xl sm:text-5xl lg:text-6xl  text-neutral-900 font-future">Try Quantumworks Lab today</h2><p class="text-neutral-500 font-medium  text-lg md:text-xl max-w-3xl m-auto">Get started for free or see how Quantumworks Lab can fit your specific needs by <a href="../../sales/index.html">requesting a demo</a></p></div><a href="https://app.labelbox.com/signup" class="group transition-all inline-flex justify-center items-center gap-[.5em] lb-button !outline-none focus:!outline-none focus-visible:!outline-none focus:!shadow-none focus:!drop-shadow-none active:shadow-none w-fit text-xl py-4 px-6 rounded-xl font-medium leading-[32px] bg-neutral-800 mix-blend-multiply hover:bg-black dark:bg-neutral-50 text-neutral-50 dark:text-neutral-900 mt-6" id="" target="_self" style="outline:0 !important">Start for free</a></section></div>
         <div class="footer-container">
             <div class="footer-content">
                 <!-- Product Section -->
@@ -505,6 +423,94 @@ const t={preserveBehavior:!1},e=e=>{if("string"==typeof e)return[e,t];const[n,r=
         }
         
           
-          </script><script src="../../../cdn.lr-in-prod.com/LogRocket.min.js" crossorigin="anonymous"></script></body>
+          </script><script src="../../../cdn.lr-in-prod.com/LogRocket.min.js" crossorigin="anonymous"></script>
+    
+
+    
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- Data Factory Section -->
+                <div class="footer-section">
+                    <h6>The data factory</h6>
+                    <ul>
+                        <li><a href="/why-labelbox/">Why Quantumworks Lab</a></li>
+                        <li><a href="/services/labeling/">Labeling Services</a></li>
+                        <li><a href="/services/alignerr-connect/">Alignerr Connect</a></li>
+                        <li><a href="/model-foundry/">Model Foundry</a></li>
+                        <li><a href="/leaderboards/">Leaderboards</a></li>
+                    </ul>
+                </div>
+
+                <!-- Product Section -->
+                <div class="footer-section">
+                    <h6>Product</h6>
+                    <ul>
+                        <li><a href="/product/platform/">Platform</a></li>
+                        <li><a href="/product/model/foundry-models/">Model Foundry</a></li>
+                        <li><a href="/product-demos/">Product Demos</a></li>
+                        <li><a href="/recorded-demo/">Recorded Demo</a></li>
+                    </ul>
+                </div>
+
+                <!-- Solutions Section -->
+                <div class="footer-section">
+                    <h6>Solutions</h6>
+                    <ul>
+                        <li><a href="/solutions/computer-vision/">Computer Vision</a></li>
+                        <li><a href="/solutions/natural-language-processing/">Natural Language Processing</a></li>
+                        <li><a href="/solutions/complex-reasoning/">Complex Reasoning</a></li>
+                        <li><a href="/solutions/multimodal-reasoning/">Multimodal Reasoning</a></li>
+                        <li><a href="/solutions/coding-tasks/">Coding</a></li>
+                        <li><a href="/solutions/multilingual/">Multilingual</a></li>
+                        <li><a href="/solutions/text-to-audio/">Audio</a></li>
+                    </ul>
+                </div>
+
+                <!-- Learn Section (Resources) -->
+                <div class="footer-section">
+                    <h6>Learn</h6>
+                    <ul>
+                        <li><a href="/blog/">Blog</a></li>
+                        <li><a href="/guides/">Guides</a></li>
+                        <li><a href="https://docs.labelbox.com" target="_blank">Docs</a></li>
+                        <li><a href="/faqs/">FAQs</a></li>
+                        <li><a href="/research/">Research</a></li>
+                        <li><a href="/product/model/foundry-models/">Models</a></li>
+                        <li><a href="/datasets/">Public datasets</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company Section -->
+                <div class="footer-section">
+                    <h6>Company</h6>
+                    <ul>
+                        <li><a href="/company/about/">About</a></li>
+                        <li><a href="/company/security/">Privacy & Security</a></li>
+                        <li><a href="https://alignerr.com" target="_blank">Alignerr</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-logo">
+                    <img src="/static/images/favicon-v4-black.png" alt="Quantumworks Lab logo" loading="lazy" height="36" width="36">
+                </div>
+                <div class="footer-copyright">
+                    © Quantumworks Lab, Inc<br>
+                    We enable breakthroughs
+                </div>
+                <div class="footer-links">
+                    <a href="https://docs.labelbox.com/page/terms-of-service" target="_blank">Terms of Service</a>
+                    <div class="footer-divider"></div>
+                    <a href="https://docs.labelbox.com/page/privacy-notice" target="_blank">Privacy Notice</a>
+                    <div class="footer-divider"></div>
+                    <a href="https://docs.labelbox.com/page/copyright-dispute-policy" target="_blank">Copyright Dispute Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
 <!-- Mirrored from labelbox.com/guides/how-to-evaluate-and-optimize-your-data-labeling-projects-results/?ref=labelbox.ghost.io by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 02 Aug 2025 12:41:24 GMT -->
 </html>

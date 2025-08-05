@@ -273,89 +273,7 @@ const t={preserveBehavior:!1},e=e=>{if("string"==typeof e)return[e,t];const[n,r=
 <link rel="stylesheet" href="fix-footer-visibility.css">
 </head><body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXF2T87" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><div id="__next"><main><div class="Layout__Wrapper-sc-jbj1sg-0 kDcKSx transition-all duration-300 ease-in undefined  overflow"><div class=""></div><div class="HeaderMobile__Outer-sc-1yu1mfn-0 hgDgWF"><div class="HeaderMobile__Wrapper-sc-1yu1mfn-1 iPVOAg lg:w-[88vw] max-w-6xl lg:max-w-8xl m-auto px-6"><a href="../../index.html"><img width="106" height="24" alt="logo" src="../../static/images/logo-v4.svg"/></a><div class="BurgerIcon__Wrapper-sc-1rg1iu4-0 jsdymq"><div id="one"></div><div id="two"></div><div id="three"></div></div></div></div><main class="ImageModal__ImageModalWrapper-sc-1ey7m7r-0 eivcj"><div id="image-viewer"><span class="close">×</span><img class="modal-content" id="full-image"/></div></main><div class="py-12 lg:w-[88vw] max-w-6xl lg:max-w-8xl m-auto px-6"><div class="grid grid-cols-12 "><div class="col-span-12 md:col-span-3 lg:col-span-2"><div class="sticky top-24"><img src="../../static/images/guide.svg" class="h-10"/><a href="../index.html" class="flex text-md align-items-center mt-6"><img src="../../static/images/leftarrow.svg" class="img-fluid mr-2"/>All blog posts</a><main class="id__TocContainer-sc-1hduup0-1 bwsQop toc-container py-8"><div class="  js-toc"></div></main></div></div><div class="col-span-12 md:col-span-9 lg:col-span-10"><div class="md:px-24 mb-12"><div class=""><p class="my-4 text-sm font-medium">Quantumworks Lab<span class="mx-2">•</span>January 20, 2022</p><h1 class="md:text-6xl lg:text-7xl font-future text-neutral-900 dark:text-neutral-50 text-2xl md:!text-4xl font-bold max-w-3xl mb-12" style="font-feature-settings:unset">How to improve model performance with less data</h1></div><img class="img-fluid rounded-lg" src="../../../labelbox.ghost.io/blog/content/images/2022/01/MLUnboxed_Jan2022_RecapBlogPost_Header.png"/></div><main class="id__PostContentWrapper-sc-1hduup0-0 QsqTL md:px-24"><div class="content js-toc-content"><p>Machine learning has evolved past the traditional method of iterating on the model with a single large training dataset. Today, advanced ML teams extend their focus to carefully selecting their training data, training the model, examining its performance, and modifying the next training dataset accordingly. This data-centric ML method can, according to a <a href="https://arxiv.org/abs/2007.00077?ref=labelbox.ghost.io">recent study from Stanford University researchers</a>, result in anywhere from a 10% to 50% reduction in the amount of training data, depending on the ML task at hand. This can translate into significant time and cost savings for ML teams. </p><p>In this post, we’re going to walk through the details of model error analysis and data curation, both of which are vital to data-centric ML.</p><h2 id="model-diagnosis">Model diagnosis</h2><p>Model performance metrics are generally grouped into two categories: training metrics and summary metrics. Training metrics are evaluated for every epoch while a model is training, and often include measures of loss and accuracy. Usually, these metrics will tell the ML team how well the model is training and whether there are issues with the model itself. Tools like TensorBoard make it easy to view and interact with this data at a high level and improve a model given a specific architecture and dataset. </p><p>Summary metrics are measured when the model has finished training to evaluate its performance. Often, teams will use aggregate metrics to measure loss and accuracy, but it’s important to more closely examine these measurements to build a nuanced understanding of the model’s performance and curate your next set of training data accordingly.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../../../labelbox.ghost.io/blog/content/images/2022/01/MLUnboxed_Jan2022_RecapBlogPost_IterativeCycle.png" class="kg-image" alt="" loading="lazy" width="710" height="430" srcset="https://labelbox.ghost.io/blog/content/images/size/w600/2022/01/MLUnboxed_Jan2022_RecapBlogPost_IterativeCycle.png 600w, https://labelbox.ghost.io/blog/content/images/2022/01/MLUnboxed_Jan2022_RecapBlogPost_IterativeCycle.png 710w"><figcaption><span style="white-space: pre-wrap;">The basic iterative cycle when training an ML model with a data-centric approach.</span></figcaption></figure><h3 id="digging-deeper-into-performance-metrics">Digging deeper into performance metrics</h3><p>For most computer vision and text models, teams typically use localization and classification error metrics to measure performance. Though errors of both types can have the same root cause, they are worth examining separately to better plan your next steps. One of the most common metrics that measures localization error is intersection over union (IOU) — measuring how well the model prediction covered an object. An IOU score of .5 or .6 is often considered an acceptable level of accuracy, depending on the application.</p><p>Another commonly used category of summary metric is precision or recall. These measure any misclassifications and help ML teams identify the level of confidence required to score an example or class. </p><p>With aggregate summary metrics, ML engineers might be able to monitor a model’s loss decreasing and its accuracy increasing over iterations, but they are likely to miss other patterns in performance that are vital to the model’s success in a production environment, such as biases that have been inadvertently been “taught.” When teams dig deeper into performance data to look at IOU scores and precision/recall metrics, they’ll usually see that performance is quite varied across the dataset and can address specific issues with the next set of training data.</p><p>The process of digging into data can be a challenge with the traditional Jupyter Notebook approach to iteration, where predictions and ground truth can be densely packed and hard to sort through. Having an interactive tool (such as Quantumworks Lab’s <a href="../../product/platform/diagnose/indexc625.html?ref=labelbox.ghost.io">Model Diagnostics</a>) can be invaluable for this data-centric approach to ML.</p><h2 id="curating-training-data">Curating training data</h2><p>Data-centric ML requires two key considerations with respect to training data:</p><ol><li>How well it’s labeled for your specific use case</li><li>Which labeled assets are in the dataset for each iteration</li></ol><p>Curating a dataset based on the performance metrics discussed above is vital if an ML team wants to reduce the overall amount of training data required to get a model to production-level accuracy. </p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../../../labelbox.ghost.io/blog/content/images/2022/01/MLUnboxed_Jan2022_RecapBlogPost_DataCuration.png" class="kg-image" alt="" loading="lazy" width="512" height="329"><figcaption><span style="white-space: pre-wrap;">Typically, the amount of labeled data required increases over each iteration, as model performance sees diminishing returns. By curating their training datasets, ML teams can significantly reduce the required amount of training data.</span></figcaption></figure><p>When deciding what to add to the next training dataset, there are three key objectives to keep in mind:</p><ol><li><strong>Rarity.</strong> Ensuring that each class is appropriately represented within the dataset.</li><li><strong>Redundancy.</strong> If two assets are too similar, they won’t be as informative for the model. For example, a computer vision model training on images of vehicles will need images of each vehicle in various environments and conditions to accurately identify vehicles in a real-world setting.</li><li><strong>Complexity.</strong> In computer vision, if objects are difficult to find due to environment, occlusion, camera focus, or other issues, including examples of those objects in a more easily identifiable image or video in the dataset will help the model train faster.</li></ol><h3 id="sampling-methods">Sampling methods</h3><p>Many ML teams use random sampling (the assets chosen are completely random) or stratified sampling (the assets chosen are random, but include equal examples of every class based on metadata) methods to produce their dataset for each iteration. While random sampling might work well for the first couple iteration cycles, where the model only needs to develop a basic understanding of the task at hand, it becomes inefficient over time. When teams employ random sampling for further iterations, performance gains are generally small. Stratified sampling doesn’t consistently show results either, mostly because metadata doesn’t always capture the right information for the team's specific use case. </p><p>The sampling method that typically works best with a data-centric approach to ML is weak supervision via labeling functions. Labeling functions can be created to group assets by a weak classifier — for example, in a computer vision use case, a labeling function can sort through a dataset and loosely label all images likely to have a specific class or object. This tool is not perfectly accurate, but it can help ML teams quickly sort their data based on the categories they’ve identified during model diagnosis.</p><p>Combining this weak supervision method with stratified and/or random sampling will help teams curate a dataset most likely to significantly improve model performance.</p><p>Quantumworks Lab makes it easy for ML teams to create labeling functions and visually sort their data with <a href="../../product/platform/prioritize/indexc625.html?ref=labelbox.ghost.io">Catalog</a>. Check out our other posts on <a href="https://labelbox.ghost.io/blog/stop-labeling-data-blindly/">data-driven labeling</a> and <a href="https://labelbox.ghost.io/blog/youre-probably-doing-data-discovery-wrong/">data discovery</a> to learn more about our data curation and model diagnosis tools. You can also watch our on demand webinar, <a href="https://learn.labelbox.com/mlunboxed-diagnose-improve-model-performance/?ref=labelbox.ghost.io">How to diagnose and improve model performance</a>, for more details and a demo.</p></div></main></div></div></div><div class="mt-5 lg:w-[88vw] max-w-6xl lg:max-w-8xl m-auto px-6"><div class="my-20 w-full h-[1px] bg-neutral-200"></div><div class="grid grid-cols-12 gap-2"><div class="col-span-12"><h2 class="mb-12 text-center text-3xl md:text-4xl font-medium">Continue reading</h2></div><div class="col-span-12 md:col-span-6 xl:col-span-4"><div class="h-100"><div class="bg-white rounded-lg h-100 flex flex-col"><a href="../the-power-of-human-expertise-transforming-audio-and-multimodal-stem-models-with-labelbox-services/index.html" target="_self" class="relative aspect-video  undefined undefined"><img loading="lazy" decoding="async" data-nimg="fill" class="rounded-t-lg " style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;object-fit:cover;object-position:left;color:transparent" sizes="100vw" srcSet="/_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F03%2FBlog_CustomerStories-1.png&amp;w=640&amp;q=70 640w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F03%2FBlog_CustomerStories-1.png&amp;w=750&amp;q=70 750w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F03%2FBlog_CustomerStories-1.png&amp;w=828&amp;q=70 828w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F03%2FBlog_CustomerStories-1.png&amp;w=1080&amp;q=70 1080w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F03%2FBlog_CustomerStories-1.png&amp;w=1200&amp;q=70 1200w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F03%2FBlog_CustomerStories-1.png&amp;w=1920&amp;q=70 1920w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F03%2FBlog_CustomerStories-1.png&amp;w=2048&amp;q=70 2048w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F03%2FBlog_CustomerStories-1.png&amp;w=3840&amp;q=70 3840w" src="../../_next/image/index632b.html?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F03%2FBlog_CustomerStories-1.png&amp;w=3840&amp;q=70"/></a><div class="p-6 flex flex-col flex-grow justify-content-between"><div><div><p class="my-4 text-sm font-medium">Esther Na<span class="mx-2">•</span>March 6, 2025</p></div><a href="../the-power-of-human-expertise-transforming-audio-and-multimodal-stem-models-with-labelbox-services/index.html"><p class="text-xl lg:text-2xl leading-6 lg:leading-9 mb-2 max-w-3xl font-bold ">The power of human expertise: Transforming audio and multimodal STEM models with Quantumworks Lab Services</p><p class="text-base max-w-2xl undefined line-clamp-3">In this blog, learn about two AI lab customers who utilized Quantumworks Lab&#x27;s top-tier AI trainers to drive innovation in their audio and multimodal STEM models. </p></a></div></div></div></div></div><div class="col-span-12 md:col-span-6 xl:col-span-4"><div class="h-100"><div class="bg-white rounded-lg h-100 flex flex-col"><a href="../how-to-generate-industry-specific-data-for-ai-training-with-labelbox/index.html" target="_self" class="relative aspect-video  undefined undefined"><img loading="lazy" decoding="async" data-nimg="fill" class="rounded-t-lg " style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;object-fit:cover;object-position:left;color:transparent" sizes="100vw" srcSet="/_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F02%2FBlog_industry-specific.png&amp;w=640&amp;q=70 640w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F02%2FBlog_industry-specific.png&amp;w=750&amp;q=70 750w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F02%2FBlog_industry-specific.png&amp;w=828&amp;q=70 828w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F02%2FBlog_industry-specific.png&amp;w=1080&amp;q=70 1080w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F02%2FBlog_industry-specific.png&amp;w=1200&amp;q=70 1200w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F02%2FBlog_industry-specific.png&amp;w=1920&amp;q=70 1920w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F02%2FBlog_industry-specific.png&amp;w=2048&amp;q=70 2048w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F02%2FBlog_industry-specific.png&amp;w=3840&amp;q=70 3840w" src="../../_next/image/index49ca.html?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F02%2FBlog_industry-specific.png&amp;w=3840&amp;q=70"/></a><div class="p-6 flex flex-col flex-grow justify-content-between"><div><div><p class="my-4 text-sm font-medium">Quantumworks Lab<span class="mx-2">•</span>February 25, 2025</p></div><a href="../how-to-generate-industry-specific-data-for-ai-training-with-labelbox/index.html"><p class="text-xl lg:text-2xl leading-6 lg:leading-9 mb-2 max-w-3xl font-bold ">How to generate industry-specific data for AI training with Quantumworks Lab</p><p class="text-base max-w-2xl undefined line-clamp-3">This guide will teach you how to generate domain-specific data with the Quantumworks Lab data factory to train your LLMs and AI models on industry-specific reasoning. </p></a></div></div></div></div></div><div class="col-span-12 md:col-span-6 xl:col-span-4"><div class="h-100"><div class="bg-white rounded-lg h-100 flex flex-col"><a href="../code-runner-secure-scalable-code-execution-for-model-evaluation-2/index.html" target="_self" class="relative aspect-video  undefined undefined"><img loading="lazy" decoding="async" data-nimg="fill" class="rounded-t-lg " style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;object-fit:cover;object-position:left;color:transparent" sizes="100vw" srcSet="/_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2024%2F12%2FLabelbox-code-runner--1-.png&amp;w=640&amp;q=70 640w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2024%2F12%2FLabelbox-code-runner--1-.png&amp;w=750&amp;q=70 750w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2024%2F12%2FLabelbox-code-runner--1-.png&amp;w=828&amp;q=70 828w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2024%2F12%2FLabelbox-code-runner--1-.png&amp;w=1080&amp;q=70 1080w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2024%2F12%2FLabelbox-code-runner--1-.png&amp;w=1200&amp;q=70 1200w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2024%2F12%2FLabelbox-code-runner--1-.png&amp;w=1920&amp;q=70 1920w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2024%2F12%2FLabelbox-code-runner--1-.png&amp;w=2048&amp;q=70 2048w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2024%2F12%2FLabelbox-code-runner--1-.png&amp;w=3840&amp;q=70 3840w" src="../../_next/image/index4144.html?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2024%2F12%2FLabelbox-code-runner--1-.png&amp;w=3840&amp;q=70"/></a><div class="p-6 flex flex-col flex-grow justify-content-between"><div><div><p class="my-4 text-sm font-medium">Dmytro Apollonin<span class="mx-2">•</span>December 20, 2024</p></div><a href="../code-runner-secure-scalable-code-execution-for-model-evaluation-2/index.html"><p class="text-xl lg:text-2xl leading-6 lg:leading-9 mb-2 max-w-3xl font-bold ">Code Runner: Secure, scalable code execution for model evaluation</p><p class="text-base max-w-2xl undefined line-clamp-3">Meet Code Runner, the new in-platform code execution engine designed to simplify coding-related tasks and deliver higher-quality datasets for coding-related projects.</p></a></div></div></div></div></div></div></div><div class=""><div class="my-24 w-full h-[1px] bg-neutral-200"></div><section id="start-for-free-footer" class="
       max-w-xl
-      m-auto flex flex-col gap-4 items-center justify-items-center text-center"><div class="Footer__FooterSection-sc-172m51x-0 cKNvnl flex flex-col gap-y-6 justify-center"><div class="w-160 m-auto pb-10"></div><h2 class="font-medium text-4xl sm:text-5xl lg:text-6xl  text-neutral-900 font-future">Try Quantumworks Lab today</h2><p class="text-neutral-500 font-medium  text-lg md:text-xl max-w-3xl m-auto">Get started for free or see how Quantumworks Lab can fit your specific needs by <a href="../../sales/index.html">requesting a demo</a></p></div><a href="https://app.labelbox.com/signup" class="group transition-all inline-flex justify-center items-center gap-[.5em] lb-button !outline-none focus:!outline-none focus-visible:!outline-none focus:!shadow-none focus:!drop-shadow-none active:shadow-none w-fit text-xl py-4 px-6 rounded-xl font-medium leading-[32px] bg-neutral-800 mix-blend-multiply hover:bg-black dark:bg-neutral-50 text-neutral-50 dark:text-neutral-900 mt-6" id="" target="_self" style="outline:0 !important">Start for free</a></section></div><footer class="footer">
-        <div class="footer-container">
-            <div class="footer-content">
-                <!-- Product Section -->
-                <div class="footer-section">
-                    <h6>Product</h6>
-                    <ul>
-                        <li><a href="/product/platform/">Platform</a></li>
-                        <li><a href="/product/model/foundry-models/">Model Foundry</a></li>
-                        <li><a href="/product-demos/">Product Demos</a></li>
-                        <li><a href="/recorded-demo/">Recorded Demo</a></li>
-                    </ul>
-                </div>
-
-                <!-- Solutions Section -->
-                <div class="footer-section">
-                    <h6>Solutions</h6>
-                    <ul>
-                        <li><a href="/solutions/computer-vision/">Computer Vision</a></li>
-                        <li><a href="/solutions/natural-language-processing/">Natural Language Processing</a></li>
-                        <li><a href="/solutions/complex-reasoning/">Complex Reasoning</a></li>
-                        <li><a href="/solutions/multimodal-reasoning/">Multimodal Reasoning</a></li>
-                        <li><a href="/solutions/coding-tasks/">Coding</a></li>
-                        <li><a href="/solutions/multilingual/">Multilingual</a></li>
-                        <li><a href="/solutions/text-to-audio/">Audio</a></li>
-                    </ul>
-                </div>
-
-                <!-- Learn Section (Resources) -->
-                <div class="footer-section">
-                    <h6>Learn</h6>
-                    <ul>
-                        <li><a href="/blog/">Blog</a></li>
-                        <li><a href="/guides/">Guides</a></li>
-                        <li><a href="https://docs.labelbox.com" target="_blank">Docs</a></li>
-                        <li><a href="/faqs/">FAQs</a></li>
-                        <li><a href="/research/">Research</a></li>
-                        <li><a href="/product/model/foundry-models/">Models</a></li>
-                        <li><a href="/datasets/">Public datasets</a></li>
-                    </ul>
-                </div>
-
-                <!-- Company Section -->
-                <div class="footer-section">
-                    <h6>Company</h6>
-                    <ul>
-                        <li><a href="/company/about/">About</a></li>
-                        <li><a href="/company/security/">Privacy & Security</a></li>
-                        <li><a href="https://alignerr.com" target="_blank">Alignerr</a></li>
-                    </ul>
-                </div>
-
-                <!-- Data Factory Section -->
-                <div class="footer-section">
-                    <h6>The data factory</h6>
-                    <ul>
-                        <li><a href="/why-labelbox/">Why Quantumworks Lab</a></li>
-                        <li><a href="/services/labeling/">Labeling Services</a></li>
-                        <li><a href="/services/alignerr-connect/">Alignerr Connect</a></li>
-                        <li><a href="/model-foundry/">Model Foundry</a></li>
-                        <li><a href="/leaderboards/">Leaderboards</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <div class="footer-logo">
-                    <img src="static/images/favicon-v4-black.png" alt="Quantumworks Lab logo" loading="lazy" height="36" width="36">
-                </div>
-                <div class="footer-copyright">
-                    © Quantumworks Lab, Inc<br>
-                    We enable breakthroughs
-                </div>
-                <div class="footer-links">
-                    <a href="https://docs.labelbox.com/page/terms-of-service" target="_blank">Terms of Service</a>
-                    <div class="footer-divider"></div>
-                    <a href="https://docs.labelbox.com/page/privacy-notice" target="_blank">Privacy Notice</a>
-                    <div class="footer-divider"></div>
-                    <a href="https://docs.labelbox.com/page/copyright-dispute-policy" target="_blank">Copyright Dispute Policy</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+      m-auto flex flex-col gap-4 items-center justify-items-center text-center"><div class="Footer__FooterSection-sc-172m51x-0 cKNvnl flex flex-col gap-y-6 justify-center"><div class="w-160 m-auto pb-10"></div><h2 class="font-medium text-4xl sm:text-5xl lg:text-6xl  text-neutral-900 font-future">Try Quantumworks Lab today</h2><p class="text-neutral-500 font-medium  text-lg md:text-xl max-w-3xl m-auto">Get started for free or see how Quantumworks Lab can fit your specific needs by <a href="../../sales/index.html">requesting a demo</a></p></div><a href="https://app.labelbox.com/signup" class="group transition-all inline-flex justify-center items-center gap-[.5em] lb-button !outline-none focus:!outline-none focus-visible:!outline-none focus:!shadow-none focus:!drop-shadow-none active:shadow-none w-fit text-xl py-4 px-6 rounded-xl font-medium leading-[32px] bg-neutral-800 mix-blend-multiply hover:bg-black dark:bg-neutral-50 text-neutral-50 dark:text-neutral-900 mt-6" id="" target="_self" style="outline:0 !important">Start for free</a></section></div>
         <div class="footer-container">
             <div class="footer-content">
                 <!-- Product Section -->
@@ -550,6 +468,92 @@ const t={preserveBehavior:!1},e=e=>{if("string"==typeof e)return[e,t];const[n,r=
         }
         
           
-          </script><script src="../../../cdn.lr-in-prod.com/LogRocket.min.js" crossorigin="anonymous"></script></body>
+          </script><script src="../../../cdn.lr-in-prod.com/LogRocket.min.js" crossorigin="anonymous"></script>
+    
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- Data Factory Section -->
+                <div class="footer-section">
+                    <h6>The data factory</h6>
+                    <ul>
+                        <li><a href="/why-labelbox/">Why Quantumworks Lab</a></li>
+                        <li><a href="/services/labeling/">Labeling Services</a></li>
+                        <li><a href="/services/alignerr-connect/">Alignerr Connect</a></li>
+                        <li><a href="/model-foundry/">Model Foundry</a></li>
+                        <li><a href="/leaderboards/">Leaderboards</a></li>
+                    </ul>
+                </div>
+
+                <!-- Product Section -->
+                <div class="footer-section">
+                    <h6>Product</h6>
+                    <ul>
+                        <li><a href="/product/platform/">Platform</a></li>
+                        <li><a href="/product/model/foundry-models/">Model Foundry</a></li>
+                        <li><a href="/product-demos/">Product Demos</a></li>
+                        <li><a href="/recorded-demo/">Recorded Demo</a></li>
+                    </ul>
+                </div>
+
+                <!-- Solutions Section -->
+                <div class="footer-section">
+                    <h6>Solutions</h6>
+                    <ul>
+                        <li><a href="/solutions/computer-vision/">Computer Vision</a></li>
+                        <li><a href="/solutions/natural-language-processing/">Natural Language Processing</a></li>
+                        <li><a href="/solutions/complex-reasoning/">Complex Reasoning</a></li>
+                        <li><a href="/solutions/multimodal-reasoning/">Multimodal Reasoning</a></li>
+                        <li><a href="/solutions/coding-tasks/">Coding</a></li>
+                        <li><a href="/solutions/multilingual/">Multilingual</a></li>
+                        <li><a href="/solutions/text-to-audio/">Audio</a></li>
+                    </ul>
+                </div>
+
+                <!-- Learn Section (Resources) -->
+                <div class="footer-section">
+                    <h6>Learn</h6>
+                    <ul>
+                        <li><a href="/blog/">Blog</a></li>
+                        <li><a href="/guides/">Guides</a></li>
+                        <li><a href="https://docs.labelbox.com" target="_blank">Docs</a></li>
+                        <li><a href="/faqs/">FAQs</a></li>
+                        <li><a href="/research/">Research</a></li>
+                        <li><a href="/product/model/foundry-models/">Models</a></li>
+                        <li><a href="/datasets/">Public datasets</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company Section -->
+                <div class="footer-section">
+                    <h6>Company</h6>
+                    <ul>
+                        <li><a href="/company/about/">About</a></li>
+                        <li><a href="/company/security/">Privacy & Security</a></li>
+                        <li><a href="https://alignerr.com" target="_blank">Alignerr</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-logo">
+                    <img src="/static/images/favicon-v4-black.png" alt="Quantumworks Lab logo" loading="lazy" height="36" width="36">
+                </div>
+                <div class="footer-copyright">
+                    © Quantumworks Lab, Inc<br>
+                    We enable breakthroughs
+                </div>
+                <div class="footer-links">
+                    <a href="https://docs.labelbox.com/page/terms-of-service" target="_blank">Terms of Service</a>
+                    <div class="footer-divider"></div>
+                    <a href="https://docs.labelbox.com/page/privacy-notice" target="_blank">Privacy Notice</a>
+                    <div class="footer-divider"></div>
+                    <a href="https://docs.labelbox.com/page/copyright-dispute-policy" target="_blank">Copyright Dispute Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
 <!-- Mirrored from labelbox.com/blog/how-to-improve-model-performance-with-less-data/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 02 Aug 2025 12:41:31 GMT -->
 </html>

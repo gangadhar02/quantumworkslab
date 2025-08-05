@@ -231,89 +231,7 @@ const t={preserveBehavior:!1},e=e=>{if("string"==typeof e)return[e,t];const[n,r=
 <script src="../../../fast.wistia.net/assets/external/E-v1.js" async=""></script></figure><p>Using gpt-3.5-turbo, we see the results of the prompts, along with their performance metrics.</p><p>From these results, we observe that prompts that fared best provided a clear and structured instruction to the model. These prompts explicitly mention the expected format for identifying airline names. Furthermore, these prompt structures introduce a pattern that the model can recognize and follow. In the case of "Detect airline references..." the model is prompted to look for references in a specific format (e.g. hashtags), which may be a common pattern in tweets mentioning airlines.</p><p>Prompts that fared worst had a theme: ambiguity in the prompt response format. Examples like "What are the airlines in this tweet?" and "Find all airline mentions in the tweet" are open- ended and do not provide a specific structure, making it harder for the model to interpret the task.</p><p>What’s interesting to note is that the prompt “Identify airlines like this - [#AIRLINE_NAME_1]:'{tweet}’” did NOT perform well even though it provided an example response format. This underscores the profound impact that punctuation and grammatical structure can have for prompt engineering. Instead of interpreting “[#AIRLINE_NAME_1]" as the LLM-output format, the LLM instead interpreted it as a pattern-matching task to identify all airlines within a tweet that contain this specific format [#AIRLINE_NAME_1], of which there are none (hence, 0% across the evaluation metrics).</p><p>In addition to testing different prompts, we can run various experiments to evaluate the efficacy of the task and evaluate the impact of those experiments in Quantumworks Lab Model. One such experiment could be to compare different models (GPT-4 vs. GPT-3.5, etc.). The video below shows how we can compare GPT-4 vs. GPT-3.5 on how each model performs on extracting airlines from the prompts we created above.</p><figure class="kg-card kg-embed-card"><iframe src="https://fast.wistia.net/embed/iframe/13yquhzp4o" title="[Guide] Airline extraction model comparison Video" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" msallowfullscreen="" width="960" height="534"></iframe>
 <script src="../../../fast.wistia.net/assets/external/E-v1.js" async=""></script></figure><p><strong>Zero-shot learning netted us the following baseline benchmark on the test set: 19%.</strong></p><h3 id="few-shot-learning">Few-shot learning&nbsp;</h3><p>To build upon this benchmark, we used one of the prompts that performed well in zero-shot learning in tandem with few-shot learning — a technique whereby along with the prompt, we also feed an LLM concrete examples of task performance. These concrete examples are chosen from our training dataset (found in <strong>airline_train.csv</strong>).</p><p>This is an example few-shot prompt that we passed to the LLM:</p><p>Given the following tweets and their corresponding airlines, separated by new lines:</p><p>1) SouthwestAir bags fly free..just not to where you're going.,['Southwest Airlines']</p><p>2) Jet Blue I don't know- no one would tell me where they were coming from,['JetBlue Airways']</p><p>Please extract the airline(s) from the following tweet:</p><p>"SouthwestAir Just got companion pass and trying to add companion flg. Help!"</p><p>Using the following format - ['#AIRLINE_NAME_1] for one airline or ['#AIRLINE_NAME_1, #AIRLINE_NAME_2...] for multiple airlines.</p><p>Evaluating our model (gpt-3.5-turbo) on the test set via few-shot learning, we achieved an accuracy of 96.66%! There were 7 total misclassifications. Further inspection into these misclassifications actually reveals that there may be issues within the ground-truth dataset.</p><p><strong>Few-shot learning netted us the following accuracy benchmark on the test set: 97%.</strong></p><h3 id="fine-tuning-with-a-training-dataset">Fine-tuning with a training dataset</h3><p>Lastly, we seek to determine whether fine-tuning would improve our results. To ensure parity across our experiments, we used the same 100 randomly generated examples from the training dataset for few-shot learning as our control variable for the fine-tuning task.</p><p><strong>Fine-tuning netted us the following accuracy benchmark on the test set: 97%.</strong></p><h3 id="comparing-results"><strong>Comparing results</strong></h3><p>These were the final results:</p><p>1) Zero-shot learning netted us the following accuracy baseline benchmark on the test set: 19%.</p><p>2) Few-shot learning netted us the following accuracy benchmark on the test set: 97%.</p><p>3) Fine tuning netted us the following accuracy benchmark on the test set: 91%.</p><p><strong>Key takeaways</strong></p><p>Prompt engineering in tandem with few-shot learning versus fine-tuning both yield similar results for the task of extracting airline references from tweets. The ultimate consideration between the two boils down to achieving economies of scale. If teams find themselves needing to execute a prompt 100,000 times, the effort invested in terms of both human hours and GPU usage (or, token costs, if utilizing an API) can be justified when fine-tuning, as the cumulative savings in prompt tokens and the potential for improved output quality can accumulate significantly. Conversely, if we’re only using the prompt ten times and it's already effective, there's no rationale for fine-tuning it.</p><p>Regardless of which option you choose, we’ve seen how <a href="https://docs.labelbox.com/docs/annotate-overview">Quantumworks Lab Annotate</a> and <a href="https://docs.labelbox.com/docs/models-overview">Quantumworks Lab Model</a> can help achieve both outcomes.</p><p>We can also improve results by ensuring variability within the few-shot learning examples. Currently, we are using a naive approach by selecting 100 randomly generated examples from the training dataset, so that it fits within the context window of gpt-3.5-turbo. Despite leveraging ~10% of our training data (100 rows / 900 possible training data rows), it’s less about data quantity and more about data quality. If we can curate a few-shot learning dataset of only 100 rows that has enough variance to be representative of the larger 900 rows, then that would be most ideal, from a token-sizing and, subsequently, cost perspective in addition to an engineering perspective (achieving more with less).</p><p>Examples of variance include tweet structure as well as a healthy mix of tweets with multiple airlines referenced. For tweet structure, we can use regular expressions to create patterns to capture mentions (@username), hashtags (#hashtag), airline stock ticker symbols, or emojis. In our use case, hashtags and ticker symbols would be super beneficial, since we see them scattered throughout our training dataset (e.g. #LUVisbetter, #jetblue, #UnitedAirlines, AA, etc.).</p><p>Using <a href="https://docs.labelbox.com/docs/models-overview">Quantumworks Lab Model</a>, we can version our few-shot learning and fine-tuning experiments by tying each experiment to a corresponding model run. Comparing evaluation metrics across different model runs allows us to either:</p><ul><li>Choose the few-shot learning prompt with the best precision, accuracy, and/or recall metric</li><li>Choose the fine-tuned model with the best precision, accuracy, and/or recall metric</li></ul><hr><h2 id="get-started-today">Get started today </h2><p>Through our case study extracting airline names from tweets, we've explored the key differences between zero-shot learning, few-shot learning, and fine-tuning for applying large language models to NLP tasks.</p><p>The best technique depends on your use case and available resources. The key is understanding how different data inputs affect an LLM's behavior. With the right approach, you can take advantage of LLMs' reasoning skills for a wide range of NLP applications. You can leverage each of these learning techniques with Quantumworks Lab’s LLM data generation editor and Quantumworks Lab Model.&nbsp;</p><p>Quantumworks Lab is a data factory that empowers teams to generate high-quality data and accelerate the development of differentiated genAI solutions. To get started, <a href="https://app.labelbox.com/signup?_gl=1*p9sldc*_ga*MTIxOTY2MjYxMy4xNjkwNDg1NjI5*_ga_WS2TB2GPYE*MTY5MjkwMjk0OC40LjAuMTY5MjkwMzQ1Ni4wLjAuMA..?utm_keyword=Quantumworks Lab&amp;utm_medium=email&amp;utm_source=house&amp;utm_campaign=modelfoundry&amp;&amp;attr=intercom&amp;referrer_url=https://www.google.com/&amp;_r=https://www.google.com/?utm_keyword=Quantumworks Lab&amp;utm_source=google&amp;utm_medium=paid-search&amp;utm_campaign=20490363302&amp;gclid=Cj0KCQiA6Ou5BhCrARIsAPoTxrBVxRVcyUPeK8y7Mn2rtcM2M257gsxyxejwhFES91vcP7xYdoij4OQaAjUwEALw_wcB&amp;attr=arcade&amp;landingPageAnonymousId=%22ce322bab-56ea-43b8-a113-000851a3ebaf%22&amp;referrer_url=https://www.google.com/">sign up for a free Quantumworks Lab account</a> or <a href="../../sales/index.html">request a demo</a>.</p></div></main></div></div></div><div class="mt-5 lg:w-[88vw] max-w-6xl lg:max-w-8xl m-auto px-6"><div class="my-20 w-full h-[1px] bg-neutral-200"></div><div class=""><div class=""><h2 class="mb-12 text-center text-3xl md:text-4xl font-medium">Continue reading</h2></div><div class="flex flex-wrap justify-content-center"><div class="max-w-md mx-2 "><div class="h-100"><div class="bg-transparent rounded-lg h-100 flex flex-col"><a href="../labelbox-leaderboards-redefining-ai-evaluation-with-human-assessments/index.html" target="_self" class="relative aspect-video  undefined border border-neutral-200 rounded-lg"><img loading="lazy" decoding="async" data-nimg="fill" class="rounded-lg " style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;object-fit:cover;object-position:center;color:transparent" sizes="100vw" srcSet="/_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2025%2F06%2Fguide_LeaderboxHero2.png&amp;w=640&amp;q=70 640w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2025%2F06%2Fguide_LeaderboxHero2.png&amp;w=750&amp;q=70 750w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2025%2F06%2Fguide_LeaderboxHero2.png&amp;w=828&amp;q=70 828w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2025%2F06%2Fguide_LeaderboxHero2.png&amp;w=1080&amp;q=70 1080w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2025%2F06%2Fguide_LeaderboxHero2.png&amp;w=1200&amp;q=70 1200w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2025%2F06%2Fguide_LeaderboxHero2.png&amp;w=1920&amp;q=70 1920w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2025%2F06%2Fguide_LeaderboxHero2.png&amp;w=2048&amp;q=70 2048w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2025%2F06%2Fguide_LeaderboxHero2.png&amp;w=3840&amp;q=70 3840w" src="../../_next/image/indexa17d.html?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2025%2F06%2Fguide_LeaderboxHero2.png&amp;w=3840&amp;q=70"/></a><div class="py-6 px-1 flex flex-col flex-grow justify-content-between"><div><a href="../labelbox-leaderboards-redefining-ai-evaluation-with-human-assessments/index.html"><p class="text-xl lg:text-2xl leading-6 lg:leading-9 mb-2 max-w-3xl font-bold ">Quantumworks Lab Leaderboards: Redefining AI evaluations with human-centric assessments</p><p class="text-base max-w-2xl undefined line-clamp-3">Introducing our groundbreaking Quantumworks Lab Leaderboards: an innovative, scientific process to rank multimodal AI models that goes beyond conventional benchmarks.</p></a></div></div></div></div></div><div class="max-w-md mx-2 "><div class="h-100"><div class="bg-transparent rounded-lg h-100 flex flex-col"><a href="../programmatically-launch-human-data-jobs-for-rlhf-and-evaluation/index.html" target="_self" class="relative aspect-video  undefined border border-neutral-200 rounded-lg"><img loading="lazy" decoding="async" data-nimg="fill" class="rounded-lg " style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;object-fit:cover;object-position:center;color:transparent" sizes="100vw" srcSet="/_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-26-at-2.03.08-PM.png&amp;w=640&amp;q=70 640w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-26-at-2.03.08-PM.png&amp;w=750&amp;q=70 750w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-26-at-2.03.08-PM.png&amp;w=828&amp;q=70 828w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-26-at-2.03.08-PM.png&amp;w=1080&amp;q=70 1080w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-26-at-2.03.08-PM.png&amp;w=1200&amp;q=70 1200w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-26-at-2.03.08-PM.png&amp;w=1920&amp;q=70 1920w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-26-at-2.03.08-PM.png&amp;w=2048&amp;q=70 2048w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-26-at-2.03.08-PM.png&amp;w=3840&amp;q=70 3840w" src="../../_next/image/indexbb2a.html?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-26-at-2.03.08-PM.png&amp;w=3840&amp;q=70"/></a><div class="py-6 px-1 flex flex-col flex-grow justify-content-between"><div><a href="../programmatically-launch-human-data-jobs-for-rlhf-and-evaluation/index.html"><p class="text-xl lg:text-2xl leading-6 lg:leading-9 mb-2 max-w-3xl font-bold ">Programmatically launch human data jobs for RLHF and evaluation</p><p class="text-base max-w-2xl undefined line-clamp-3">Learn how to harness the SDK to manage human data labeling jobs for RLHF and model evaluation. With just a few steps, you can set up the SDK, import various types of data, and launch, monitor, and export labeling projects programmatically, all while ensuring data quality and scalability.</p></a></div></div></div></div></div><div class="max-w-md mx-2 "><div class="h-100"><div class="bg-transparent rounded-lg h-100 flex flex-col"><a href="../evaluating-leading-text-to-speech-models/index.html" target="_self" class="relative aspect-video  undefined border border-neutral-200 rounded-lg"><img loading="lazy" decoding="async" data-nimg="fill" class="rounded-lg " style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;object-fit:cover;object-position:center;color:transparent" sizes="100vw" srcSet="/_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-17-at-12.12.46-PM.png&amp;w=640&amp;q=70 640w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-17-at-12.12.46-PM.png&amp;w=750&amp;q=70 750w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-17-at-12.12.46-PM.png&amp;w=828&amp;q=70 828w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-17-at-12.12.46-PM.png&amp;w=1080&amp;q=70 1080w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-17-at-12.12.46-PM.png&amp;w=1200&amp;q=70 1200w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-17-at-12.12.46-PM.png&amp;w=1920&amp;q=70 1920w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-17-at-12.12.46-PM.png&amp;w=2048&amp;q=70 2048w, /_next/image/?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-17-at-12.12.46-PM.png&amp;w=3840&amp;q=70 3840w" src="../../_next/image/index6ff8.html?url=https%3A%2F%2Flabelbox-guides.ghost.io%2Fcontent%2Fimages%2F2024%2F08%2FScreenshot-2024-08-17-at-12.12.46-PM.png&amp;w=3840&amp;q=70"/></a><div class="py-6 px-1 flex flex-col flex-grow justify-content-between"><div><a href="../evaluating-leading-text-to-speech-models/index.html"><p class="text-xl lg:text-2xl leading-6 lg:leading-9 mb-2 max-w-3xl font-bold ">Evaluating leading text-to-speech models</p><p class="text-base max-w-2xl undefined line-clamp-3">Discover how to employ a more comprehensive approach to evaluating leading text-to-speech models using both human preference ratings and automated evaluation techniques.</p></a></div></div></div></div></div></div></div></div><div class=""><div class="my-24 w-full h-[1px] bg-neutral-200"></div><section id="start-for-free-footer" class="
       max-w-xl
-      m-auto flex flex-col gap-4 items-center justify-items-center text-center"><div class="Footer__FooterSection-sc-172m51x-0 cKNvnl flex flex-col gap-y-6 justify-center"><div class="w-160 m-auto pb-10"></div><h2 class="font-medium text-4xl sm:text-5xl lg:text-6xl  text-neutral-900 font-future">Try Quantumworks Lab today</h2><p class="text-neutral-500 font-medium  text-lg md:text-xl max-w-3xl m-auto">Get started for free or see how Quantumworks Lab can fit your specific needs by <a href="../../sales/index.html">requesting a demo</a></p></div><a href="https://app.labelbox.com/signup" class="group transition-all inline-flex justify-center items-center gap-[.5em] lb-button !outline-none focus:!outline-none focus-visible:!outline-none focus:!shadow-none focus:!drop-shadow-none active:shadow-none w-fit text-xl py-4 px-6 rounded-xl font-medium leading-[32px] bg-neutral-800 mix-blend-multiply hover:bg-black dark:bg-neutral-50 text-neutral-50 dark:text-neutral-900 mt-6" id="" target="_self" style="outline:0 !important">Start for free</a></section></div><footer class="footer">
-        <div class="footer-container">
-            <div class="footer-content">
-                <!-- Product Section -->
-                <div class="footer-section">
-                    <h6>Product</h6>
-                    <ul>
-                        <li><a href="/product/platform/">Platform</a></li>
-                        <li><a href="/product/model/foundry-models/">Model Foundry</a></li>
-                        <li><a href="/product-demos/">Product Demos</a></li>
-                        <li><a href="/recorded-demo/">Recorded Demo</a></li>
-                    </ul>
-                </div>
-
-                <!-- Solutions Section -->
-                <div class="footer-section">
-                    <h6>Solutions</h6>
-                    <ul>
-                        <li><a href="/solutions/computer-vision/">Computer Vision</a></li>
-                        <li><a href="/solutions/natural-language-processing/">Natural Language Processing</a></li>
-                        <li><a href="/solutions/complex-reasoning/">Complex Reasoning</a></li>
-                        <li><a href="/solutions/multimodal-reasoning/">Multimodal Reasoning</a></li>
-                        <li><a href="/solutions/coding-tasks/">Coding</a></li>
-                        <li><a href="/solutions/multilingual/">Multilingual</a></li>
-                        <li><a href="/solutions/text-to-audio/">Audio</a></li>
-                    </ul>
-                </div>
-
-                <!-- Learn Section (Resources) -->
-                <div class="footer-section">
-                    <h6>Learn</h6>
-                    <ul>
-                        <li><a href="/blog/">Blog</a></li>
-                        <li><a href="/guides/">Guides</a></li>
-                        <li><a href="https://docs.labelbox.com" target="_blank">Docs</a></li>
-                        <li><a href="/faqs/">FAQs</a></li>
-                        <li><a href="/research/">Research</a></li>
-                        <li><a href="/product/model/foundry-models/">Models</a></li>
-                        <li><a href="/datasets/">Public datasets</a></li>
-                    </ul>
-                </div>
-
-                <!-- Company Section -->
-                <div class="footer-section">
-                    <h6>Company</h6>
-                    <ul>
-                        <li><a href="/company/about/">About</a></li>
-                        <li><a href="/company/security/">Privacy & Security</a></li>
-                        <li><a href="https://alignerr.com" target="_blank">Alignerr</a></li>
-                    </ul>
-                </div>
-
-                <!-- Data Factory Section -->
-                <div class="footer-section">
-                    <h6>The data factory</h6>
-                    <ul>
-                        <li><a href="/why-labelbox/">Why Quantumworks Lab</a></li>
-                        <li><a href="/services/labeling/">Labeling Services</a></li>
-                        <li><a href="/services/alignerr-connect/">Alignerr Connect</a></li>
-                        <li><a href="/model-foundry/">Model Foundry</a></li>
-                        <li><a href="/leaderboards/">Leaderboards</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <div class="footer-logo">
-                    <img src="static/images/favicon-v4-black.png" alt="Quantumworks Lab logo" loading="lazy" height="36" width="36">
-                </div>
-                <div class="footer-copyright">
-                    © Quantumworks Lab, Inc<br>
-                    We enable breakthroughs
-                </div>
-                <div class="footer-links">
-                    <a href="https://docs.labelbox.com/page/terms-of-service" target="_blank">Terms of Service</a>
-                    <div class="footer-divider"></div>
-                    <a href="https://docs.labelbox.com/page/privacy-notice" target="_blank">Privacy Notice</a>
-                    <div class="footer-divider"></div>
-                    <a href="https://docs.labelbox.com/page/copyright-dispute-policy" target="_blank">Copyright Dispute Policy</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+      m-auto flex flex-col gap-4 items-center justify-items-center text-center"><div class="Footer__FooterSection-sc-172m51x-0 cKNvnl flex flex-col gap-y-6 justify-center"><div class="w-160 m-auto pb-10"></div><h2 class="font-medium text-4xl sm:text-5xl lg:text-6xl  text-neutral-900 font-future">Try Quantumworks Lab today</h2><p class="text-neutral-500 font-medium  text-lg md:text-xl max-w-3xl m-auto">Get started for free or see how Quantumworks Lab can fit your specific needs by <a href="../../sales/index.html">requesting a demo</a></p></div><a href="https://app.labelbox.com/signup" class="group transition-all inline-flex justify-center items-center gap-[.5em] lb-button !outline-none focus:!outline-none focus-visible:!outline-none focus:!shadow-none focus:!drop-shadow-none active:shadow-none w-fit text-xl py-4 px-6 rounded-xl font-medium leading-[32px] bg-neutral-800 mix-blend-multiply hover:bg-black dark:bg-neutral-50 text-neutral-50 dark:text-neutral-900 mt-6" id="" target="_self" style="outline:0 !important">Start for free</a></section></div>
         <div class="footer-container">
             <div class="footer-content">
                 <!-- Product Section -->
@@ -508,6 +426,94 @@ const t={preserveBehavior:!1},e=e=>{if("string"==typeof e)return[e,t];const[n,r=
         }
         
           
-          </script><script src="../../../cdn.lr-in-prod.com/LogRocket.min.js" crossorigin="anonymous"></script></body>
+          </script><script src="../../../cdn.lr-in-prod.com/LogRocket.min.js" crossorigin="anonymous"></script>
+    
+
+    
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- Data Factory Section -->
+                <div class="footer-section">
+                    <h6>The data factory</h6>
+                    <ul>
+                        <li><a href="/why-labelbox/">Why Quantumworks Lab</a></li>
+                        <li><a href="/services/labeling/">Labeling Services</a></li>
+                        <li><a href="/services/alignerr-connect/">Alignerr Connect</a></li>
+                        <li><a href="/model-foundry/">Model Foundry</a></li>
+                        <li><a href="/leaderboards/">Leaderboards</a></li>
+                    </ul>
+                </div>
+
+                <!-- Product Section -->
+                <div class="footer-section">
+                    <h6>Product</h6>
+                    <ul>
+                        <li><a href="/product/platform/">Platform</a></li>
+                        <li><a href="/product/model/foundry-models/">Model Foundry</a></li>
+                        <li><a href="/product-demos/">Product Demos</a></li>
+                        <li><a href="/recorded-demo/">Recorded Demo</a></li>
+                    </ul>
+                </div>
+
+                <!-- Solutions Section -->
+                <div class="footer-section">
+                    <h6>Solutions</h6>
+                    <ul>
+                        <li><a href="/solutions/computer-vision/">Computer Vision</a></li>
+                        <li><a href="/solutions/natural-language-processing/">Natural Language Processing</a></li>
+                        <li><a href="/solutions/complex-reasoning/">Complex Reasoning</a></li>
+                        <li><a href="/solutions/multimodal-reasoning/">Multimodal Reasoning</a></li>
+                        <li><a href="/solutions/coding-tasks/">Coding</a></li>
+                        <li><a href="/solutions/multilingual/">Multilingual</a></li>
+                        <li><a href="/solutions/text-to-audio/">Audio</a></li>
+                    </ul>
+                </div>
+
+                <!-- Learn Section (Resources) -->
+                <div class="footer-section">
+                    <h6>Learn</h6>
+                    <ul>
+                        <li><a href="/blog/">Blog</a></li>
+                        <li><a href="/guides/">Guides</a></li>
+                        <li><a href="https://docs.labelbox.com" target="_blank">Docs</a></li>
+                        <li><a href="/faqs/">FAQs</a></li>
+                        <li><a href="/research/">Research</a></li>
+                        <li><a href="/product/model/foundry-models/">Models</a></li>
+                        <li><a href="/datasets/">Public datasets</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company Section -->
+                <div class="footer-section">
+                    <h6>Company</h6>
+                    <ul>
+                        <li><a href="/company/about/">About</a></li>
+                        <li><a href="/company/security/">Privacy & Security</a></li>
+                        <li><a href="https://alignerr.com" target="_blank">Alignerr</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-logo">
+                    <img src="/static/images/favicon-v4-black.png" alt="Quantumworks Lab logo" loading="lazy" height="36" width="36">
+                </div>
+                <div class="footer-copyright">
+                    © Quantumworks Lab, Inc<br>
+                    We enable breakthroughs
+                </div>
+                <div class="footer-links">
+                    <a href="https://docs.labelbox.com/page/terms-of-service" target="_blank">Terms of Service</a>
+                    <div class="footer-divider"></div>
+                    <a href="https://docs.labelbox.com/page/privacy-notice" target="_blank">Privacy Notice</a>
+                    <div class="footer-divider"></div>
+                    <a href="https://docs.labelbox.com/page/copyright-dispute-policy" target="_blank">Copyright Dispute Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
 <!-- Mirrored from labelbox.com/guides/zero-shot-learning-few-shot-learning-fine-tuning/?ref=labelbox.ghost.io by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 02 Aug 2025 12:54:19 GMT -->
 </html>

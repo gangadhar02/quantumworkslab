@@ -273,89 +273,7 @@ const t={preserveBehavior:!1},e=e=>{if("string"==typeof e)return[e,t];const[n,r=
 <link rel="stylesheet" href="fix-footer-visibility.css">
 </head><body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXF2T87" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><div id="__next"><main><div class="Layout__Wrapper-sc-jbj1sg-0 kDcKSx transition-all duration-300 ease-in undefined  overflow"><div class=""></div><div class="HeaderMobile__Outer-sc-1yu1mfn-0 hgDgWF"><div class="HeaderMobile__Wrapper-sc-1yu1mfn-1 iPVOAg lg:w-[88vw] max-w-6xl lg:max-w-8xl m-auto px-6"><a href="../../index.html"><img width="106" height="24" alt="logo" src="../../static/images/logo-v4.svg"/></a><div class="BurgerIcon__Wrapper-sc-1rg1iu4-0 jsdymq"><div id="one"></div><div id="two"></div><div id="three"></div></div></div></div><main class="ImageModal__ImageModalWrapper-sc-1ey7m7r-0 eivcj"><div id="image-viewer"><span class="close">×</span><img class="modal-content" id="full-image"/></div></main><div class="py-12 lg:w-[88vw] max-w-6xl lg:max-w-8xl m-auto px-6"><div class="grid grid-cols-12 "><div class="col-span-12 md:col-span-3 lg:col-span-2"><div class="sticky top-24"><img src="../../static/images/guide.svg" class="h-10"/><a href="../index.html" class="flex text-md align-items-center mt-6"><img src="../../static/images/leftarrow.svg" class="img-fluid mr-2"/>All blog posts</a><main class="id__TocContainer-sc-1hduup0-1 bwsQop toc-container py-8"><div class="  js-toc"></div></main></div></div><div class="col-span-12 md:col-span-9 lg:col-span-10"><div class="md:px-24 mb-12"><div class=""><p class="my-4 text-sm font-medium">Quantumworks Lab<span class="mx-2">•</span>May 15, 2025</p><h1 class="md:text-6xl lg:text-7xl font-future text-neutral-900 dark:text-neutral-50 text-2xl md:!text-4xl font-bold max-w-3xl mb-12" style="font-feature-settings:unset">Prompt to production: How to improve AI app generators with rubric evals</h1></div><img class="img-fluid rounded-lg" src="../../../labelbox.ghost.io/blog/content/images/2025/05/Blog-Header_AI-App-Generator3.png"/></div><main class="id__PostContentWrapper-sc-1hduup0-0 QsqTL md:px-24"><div class="content js-toc-content"><p>The ability to transform a simple text prompt into a fully functional web application is no longer science fiction. Functional "prompt-to-app" or "AI app generator" solutions are rapidly emerging and fueling the next evolution in coding capabilities of frontier models.&nbsp;</p><p>As this new frontier expands, the journey from an initial AI-generated app to a sophisticated, secure, and user-friendly production-ready application is fraught with challenges. To truly unlock the transformative power of AI app generators, the underlying frontier models require detailed training data and robust evaluation frameworks—precisely what <a href="../../indexc625.html?ref=labelbox.ghost.io" rel="noreferrer">Quantumworks Lab</a> delivers to help build more reliable, versatile, and intelligent AI-powered development tools.&nbsp;</p><p>Read on to learn about the most common hurdles facing today’s AI app generators and to learn about our approach to helping them improve their prompt-to-app coding capabilities. </p><h3 id="what-are-ai-app-generators-and-prompt-to-app-tools"><strong>What are AI app generators and prompt-to-app tools?</strong></h3><p>AI app generators, also known as prompt-to-app or AI app builder solutions, use frontier AI models to translate user prompts directly into fully functional, standalone web applications. Startups like and <a href="https://bolt.new/?ref=labelbox.ghost.io" rel="noreferrer">Bolt</a>, <a href="https://lovable.dev/?ref=labelbox.ghost.io" rel="noreferrer">Lovable</a> and <a href="https://www.tempo.new/?ref=labelbox.ghost.io" rel="noreferrer">Tempo</a> along with offerings like <a href="https://v0.dev/?ref=labelbox.ghost.io" rel="noreferrer">v0</a> from Vercel are at the forefront of the AI app generator landscape.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../../../labelbox.ghost.io/blog/content/images/2025/05/Blog_AIAppGen_Bolt.png" class="kg-image" alt="" loading="lazy" width="2000" height="1058" srcset="https://labelbox.ghost.io/blog/content/images/size/w600/2025/05/Blog_AIAppGen_Bolt.png 600w, https://labelbox.ghost.io/blog/content/images/size/w1000/2025/05/Blog_AIAppGen_Bolt.png 1000w, https://labelbox.ghost.io/blog/content/images/size/w1600/2025/05/Blog_AIAppGen_Bolt.png 1600w, https://labelbox.ghost.io/blog/content/images/size/w2400/2025/05/Blog_AIAppGen_Bolt.png 2400w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">The simplicity of bolt.new that takes a text prompt and generate a complete application</span></figcaption></figure><p>This technology marks a transformative shift in software development by allowing users, regardless of their coding expertise, to create interactive and dynamic products simply by describing their intentions in natural language. They offer a new level of abstraction where natural language and visual concepts replace traditional SDKs and frameworks.&nbsp;&nbsp;</p><p>These AI app generators are a significant focus for AI labs today due to the immense potential they hold and the rapidly growing demand for such capabilities. The ability to seamlessly convert user intentions into robust applications represents a new competitive frontier for both foundational AI model developers and coding application startups. Leading AI labs are investing heavily in this area to push the boundaries of AI and deliver truly transformative tools that can significantly lower the barrier to software creation.&nbsp; &nbsp; </p><h3 id="hurdles-why-todays-ai-app-generators-need-a-boost"><strong>Hurdles: Why today's AI app generators need a boost</strong></h3><p>While the early successes of AI app generators are impressive, persistent challenges hinder their full potential. Current platforms often struggle with:&nbsp;&nbsp;</p><ul><li><strong>Interpreting complex user needs:</strong> Translating nuanced or intricate user requirements into accurate application logic remains a significant hurdle.&nbsp;&nbsp;</li><li><strong>Ensuring code quality and security:</strong> The generated code may lack the robustness, security standards, and efficiency required for production environments.&nbsp;&nbsp;</li><li><strong>Crafting intuitive user experiences:</strong> Creating truly engaging and intuitive user interfaces (UI) and user experiences (UX) through AI alone is a complex task.&nbsp;&nbsp;</li><li><strong>Addressing "big-picture" thinking:</strong> AI models can falter when tasks require a deep contextual understanding of how different components of an application interconnect or how changes in one area impact others.&nbsp;&nbsp;</li><li><strong>Avoiding bias:</strong> AI models can inadvertently perpetuate biases present in their training data, leading to unfair or skewed application behavior.&nbsp;&nbsp;</li></ul><p>These limitations highlight that while AI can significantly lower the barrier to entry for application creation, the path to deploying complex and reliable software requires a more refined approach.&nbsp;&nbsp;</p><h3 id="how-to-elevate-ai-app-generators-with-superior-data-and-evaluation"><strong>How to elevate AI app generators with superior data and evaluation?</strong></h3><p>Significant advancements in two core areas are crucial to overcoming these challenges: <strong>data and evaluation</strong>. This is where Quantumworks Lab's expertise and experience working with leading AI labs to solve this exact problem becomes paramount.&nbsp;&nbsp;</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../../../labelbox.ghost.io/blog/content/images/2025/05/Blog_AIAppGen.png" class="kg-image" alt="" loading="lazy" width="2000" height="837" srcset="https://labelbox.ghost.io/blog/content/images/size/w600/2025/05/Blog_AIAppGen.png 600w, https://labelbox.ghost.io/blog/content/images/size/w1000/2025/05/Blog_AIAppGen.png 1000w, https://labelbox.ghost.io/blog/content/images/size/w1600/2025/05/Blog_AIAppGen.png 1600w, https://labelbox.ghost.io/blog/content/images/size/w2400/2025/05/Blog_AIAppGen.png 2400w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">Prompt-to-app example to create a board game recommendation app</span></figcaption></figure><p>To build more capable prompt-to-app systems, models need to be trained on high-quality, diverse, and highly specific datasets. Quantumworks Lab facilitates the creation of these crucial datasets, moving beyond generic code repositories to include:&nbsp;&nbsp;</p><ul><li><strong>Targeted training datasets:</strong> We help develop comprehensive suites of meticulously crafted examples, featuring diverse user prompts and their corresponding validated, working application code and structures. This includes specialized data for UI/UX best practices, secure coding standards, and complex application logic.&nbsp;&nbsp;</li><li><strong>Ethical and quality-focused annotation:</strong> Ensuring data is annotated with precision and sourced ethically is critical for building fair and capable AI systems.&nbsp;&nbsp;</li></ul><p>While, current benchmarks often fall short in assessing the true capabilities of AI app generators, Quantumworks Lab champions more holistic and human-centric evaluation methodologies that rigorously measure:&nbsp;&nbsp;</p><ul><li><strong>Functional correctness:</strong> Does the application perform as intended based on the prompt?&nbsp;&nbsp;</li><li><strong>Code quality &amp; security:</strong> Is the generated code well-structured, efficient, and secure?&nbsp;&nbsp;</li><li><strong>Usability:</strong> Is the application intuitive and easy to use?&nbsp;&nbsp;</li><li><strong>Alignment with user intent:</strong> How well does the final application match the user's original vision?&nbsp;&nbsp;</li></ul><p>This is achieved by employing an integrated methodology, actively providing prompt-to-app data and iterative enhancement for leading AI labs. This framework includes:&nbsp;&nbsp;</p><ul><li><strong>Reviewing model-generated applications:</strong> Analyzing prompts and application structures to identify issues.&nbsp;&nbsp;</li><li><strong>Ensuring code executability:</strong> Transforming initial AI outputs into fully working web applications.&nbsp;&nbsp;</li><li><strong>Error diagnosis and resolution:</strong> Systematically executing applications, documenting failures, and capturing issues for targeted model retraining.&nbsp;&nbsp;</li><li><strong>Iterative model evaluation:</strong> Submitting refined prompts and corrected components back to the model, rigorously assessing improvements, and manually resolving persistent issues when necessary. This involves techniques like Reinforcement Learning from Human Feedback (RLHF) to align AI outputs with human preferences.&nbsp;&nbsp;</li></ul><p>A detailed framework for this process involves meticulous steps from environment setup and baseline capture to model output evaluation and, if needed, human-crafted "golden solutions" to ensure the highest quality. This iterative feedback loop is essential for refining AI models and fostering a collaborative relationship between human developers and AI. &nbsp;</p><h3 id="defining-success-the-importance-of-a-comprehensive-rubric-for-evaluation"><strong>Defining success: The importance of a comprehensive rubric for evaluation</strong></h3><p>To objectively improve AI app generators, evaluation must go beyond simple pass/fail metrics. Quantumworks Lab advocates for and utilizes comprehensive rubrics to analyze and rate AI-generated web applications across multiple criteria.&nbsp;</p><p>These rubrics assess aspects like, but not limited to: core requirements implementation, user interface quality &amp; responsive design, authentication &amp; security, and error handling &amp; performance optimization.</p><p>Each criterion is worth a certain number of points, with critical criterion worth more points. An example rubric for web application may look like the following. In this example, an excellent solution scores between 42 and 46 points and then good, satisfactory, needs improvement, and failing solutions fall into point totals below that.&nbsp;</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="../../../labelbox.ghost.io/blog/content/images/2025/05/Screenshot-2025-05-15-at-4.30.34-PM.png" class="kg-image" alt="" loading="lazy" width="647" height="490" srcset="https://labelbox.ghost.io/blog/content/images/size/w600/2025/05/Screenshot-2025-05-15-at-4.30.34-PM.png 600w, https://labelbox.ghost.io/blog/content/images/2025/05/Screenshot-2025-05-15-at-4.30.34-PM.png 647w"><figcaption><span style="white-space: pre-wrap;">Example rubric for judging five elements of an AI app generator solution</span></figcaption></figure><p>By embracing a detailed evaluation framework, you can gain deeper insights into your model’s performance and identify specific areas for improvement.&nbsp;&nbsp;</p><h3 id="improve-prompt-to-app-capabilities-today"><strong>Improve prompt-to-app capabilities today</strong></h3><p>The emergence of prompt-to-app technology represents a monumental shift in software development. While the path to perfecting these AI app generators has its hurdles, the combination of advanced AI models with high-quality, specialized training data and rigorous <a href="../../solutions/model-evaluation/indexc625.html?ref=labelbox.ghost.io" rel="noreferrer">human-in-the-loop evaluation</a> offers a clear way forward.&nbsp;</p><p>Quantumworks Lab prides itself on being at the forefront of this evolution, providing the critical data infrastructure and expertise to help train and refine the frontier models that will power the next generation of AI-driven development. &nbsp; </p></div></main></div></div></div><div class="mt-5 lg:w-[88vw] max-w-6xl lg:max-w-8xl m-auto px-6"><div class="my-20 w-full h-[1px] bg-neutral-200"></div><div class="grid grid-cols-12 gap-2"><div class="col-span-12"><h2 class="mb-12 text-center text-3xl md:text-4xl font-medium">Continue reading</h2></div><div class="col-span-12 md:col-span-6 xl:col-span-4"><div class="h-100"><div class="bg-white rounded-lg h-100 flex flex-col"><a href="../rubric-evals-fuel-next-wave-of-reinforcement-learning-rl/index.html" target="_self" class="relative aspect-video  undefined undefined"><img loading="lazy" decoding="async" data-nimg="fill" class="rounded-t-lg " style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;object-fit:cover;object-position:left;color:transparent" sizes="100vw" srcSet="/_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F05%2FBlog-Header_RubricEvals.png&amp;w=640&amp;q=70 640w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F05%2FBlog-Header_RubricEvals.png&amp;w=750&amp;q=70 750w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F05%2FBlog-Header_RubricEvals.png&amp;w=828&amp;q=70 828w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F05%2FBlog-Header_RubricEvals.png&amp;w=1080&amp;q=70 1080w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F05%2FBlog-Header_RubricEvals.png&amp;w=1200&amp;q=70 1200w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F05%2FBlog-Header_RubricEvals.png&amp;w=1920&amp;q=70 1920w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F05%2FBlog-Header_RubricEvals.png&amp;w=2048&amp;q=70 2048w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F05%2FBlog-Header_RubricEvals.png&amp;w=3840&amp;q=70 3840w" src="../../_next/image/indexe566.html?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F05%2FBlog-Header_RubricEvals.png&amp;w=3840&amp;q=70"/></a><div class="p-6 flex flex-col flex-grow justify-content-between"><div><div><p class="my-4 text-sm font-medium">Quantumworks Lab<span class="mx-2">•</span>May 16, 2025</p></div><a href="../rubric-evals-fuel-next-wave-of-reinforcement-learning-rl/index.html"><p class="text-xl lg:text-2xl leading-6 lg:leading-9 mb-2 max-w-3xl font-bold ">Rubric evaluations: Fueling the next wave of reinforcement learning</p><p class="text-base max-w-2xl undefined line-clamp-3">See how Quantumworks Lab utilizes custom rubric-based evaluations to help leading AI labs train and assess advanced frontier models with depth and nuance.</p></a></div></div></div></div></div><div class="col-span-12 md:col-span-6 xl:col-span-4"><div class="h-100"><div class="bg-white rounded-lg h-100 flex flex-col"><a href="../how-to-create-data-for-reinforcement-learning-with-verifiable-rewards-rlvr/index.html" target="_self" class="relative aspect-video  undefined undefined"><img loading="lazy" decoding="async" data-nimg="fill" class="rounded-t-lg " style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;object-fit:cover;object-position:left;color:transparent" sizes="100vw" srcSet="/_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F05%2FBlog_RLVR_Header.png&amp;w=640&amp;q=70 640w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F05%2FBlog_RLVR_Header.png&amp;w=750&amp;q=70 750w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F05%2FBlog_RLVR_Header.png&amp;w=828&amp;q=70 828w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F05%2FBlog_RLVR_Header.png&amp;w=1080&amp;q=70 1080w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F05%2FBlog_RLVR_Header.png&amp;w=1200&amp;q=70 1200w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F05%2FBlog_RLVR_Header.png&amp;w=1920&amp;q=70 1920w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F05%2FBlog_RLVR_Header.png&amp;w=2048&amp;q=70 2048w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F05%2FBlog_RLVR_Header.png&amp;w=3840&amp;q=70 3840w" src="../../_next/image/index7178.html?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F05%2FBlog_RLVR_Header.png&amp;w=3840&amp;q=70"/></a><div class="p-6 flex flex-col flex-grow justify-content-between"><div><div><p class="my-4 text-sm font-medium">Quantumworks Lab<span class="mx-2">•</span>May 6, 2025</p></div><a href="../how-to-create-data-for-reinforcement-learning-with-verifiable-rewards-rlvr/index.html"><p class="text-xl lg:text-2xl leading-6 lg:leading-9 mb-2 max-w-3xl font-bold ">How to fill your RLVR pipeline with advanced reasoning data</p><p class="text-base max-w-2xl undefined line-clamp-3">Learn how to fill your Reinforcement Learning with Verifiable Rewards (RLVR) pipelines to teach your models effective reasoning, especially for logic, math, and coding problems with clear solutions.</p></a></div></div></div></div></div><div class="col-span-12 md:col-span-6 xl:col-span-4"><div class="h-100"><div class="bg-white rounded-lg h-100 flex flex-col"><a href="../ai-evaluation-labelboxs-redesigned-multimodal-chat-editor-04-2025/index.html" target="_self" class="relative aspect-video  undefined undefined"><img loading="lazy" decoding="async" data-nimg="fill" class="rounded-t-lg " style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;object-fit:cover;object-position:left;color:transparent" sizes="100vw" srcSet="/_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F04%2FBlogHeader_Form-Based-MMC.png&amp;w=640&amp;q=70 640w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F04%2FBlogHeader_Form-Based-MMC.png&amp;w=750&amp;q=70 750w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F04%2FBlogHeader_Form-Based-MMC.png&amp;w=828&amp;q=70 828w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F04%2FBlogHeader_Form-Based-MMC.png&amp;w=1080&amp;q=70 1080w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F04%2FBlogHeader_Form-Based-MMC.png&amp;w=1200&amp;q=70 1200w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F04%2FBlogHeader_Form-Based-MMC.png&amp;w=1920&amp;q=70 1920w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F04%2FBlogHeader_Form-Based-MMC.png&amp;w=2048&amp;q=70 2048w, /_next/image/?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F04%2FBlogHeader_Form-Based-MMC.png&amp;w=3840&amp;q=70 3840w" src="../../_next/image/indexabfb.html?url=https%3A%2F%2Flabelbox.ghost.io%2Fblog%2Fcontent%2Fimages%2F2025%2F04%2FBlogHeader_Form-Based-MMC.png&amp;w=3840&amp;q=70"/></a><div class="p-6 flex flex-col flex-grow justify-content-between"><div><div><p class="my-4 text-sm font-medium">Quantumworks Lab<span class="mx-2">•</span>April 24, 2025</p></div><a href="../ai-evaluation-labelboxs-redesigned-multimodal-chat-editor-04-2025/index.html"><p class="text-xl lg:text-2xl leading-6 lg:leading-9 mb-2 max-w-3xl font-bold ">Reinventing AI evaluation: Discover the simplicity of Quantumworks Lab&#x27;s new form-based MMC editor</p><p class="text-base max-w-2xl undefined line-clamp-3">Discover Quantumworks Lab&#x27;s redesigned Multimodal Chat editor, offering an intuitive, form-based experience for streamlined AI model evaluation and data generation.</p></a></div></div></div></div></div></div></div><div class=""><div class="my-24 w-full h-[1px] bg-neutral-200"></div><section id="start-for-free-footer" class="
       max-w-xl
-      m-auto flex flex-col gap-4 items-center justify-items-center text-center"><div class="Footer__FooterSection-sc-172m51x-0 cKNvnl flex flex-col gap-y-6 justify-center"><div class="w-160 m-auto pb-10"></div><h2 class="font-medium text-4xl sm:text-5xl lg:text-6xl  text-neutral-900 font-future">Try Quantumworks Lab today</h2><p class="text-neutral-500 font-medium  text-lg md:text-xl max-w-3xl m-auto">Get started for free or see how Quantumworks Lab can fit your specific needs by <a href="../../sales/index.html">requesting a demo</a></p></div><a href="https://app.labelbox.com/signup" class="group transition-all inline-flex justify-center items-center gap-[.5em] lb-button !outline-none focus:!outline-none focus-visible:!outline-none focus:!shadow-none focus:!drop-shadow-none active:shadow-none w-fit text-xl py-4 px-6 rounded-xl font-medium leading-[32px] bg-neutral-800 mix-blend-multiply hover:bg-black dark:bg-neutral-50 text-neutral-50 dark:text-neutral-900 mt-6" id="" target="_self" style="outline:0 !important">Start for free</a></section></div><footer class="footer">
-        <div class="footer-container">
-            <div class="footer-content">
-                <!-- Product Section -->
-                <div class="footer-section">
-                    <h6>Product</h6>
-                    <ul>
-                        <li><a href="/product/platform/">Platform</a></li>
-                        <li><a href="/product/model/foundry-models/">Model Foundry</a></li>
-                        <li><a href="/product-demos/">Product Demos</a></li>
-                        <li><a href="/recorded-demo/">Recorded Demo</a></li>
-                    </ul>
-                </div>
-
-                <!-- Solutions Section -->
-                <div class="footer-section">
-                    <h6>Solutions</h6>
-                    <ul>
-                        <li><a href="/solutions/computer-vision/">Computer Vision</a></li>
-                        <li><a href="/solutions/natural-language-processing/">Natural Language Processing</a></li>
-                        <li><a href="/solutions/complex-reasoning/">Complex Reasoning</a></li>
-                        <li><a href="/solutions/multimodal-reasoning/">Multimodal Reasoning</a></li>
-                        <li><a href="/solutions/coding-tasks/">Coding</a></li>
-                        <li><a href="/solutions/multilingual/">Multilingual</a></li>
-                        <li><a href="/solutions/text-to-audio/">Audio</a></li>
-                    </ul>
-                </div>
-
-                <!-- Learn Section (Resources) -->
-                <div class="footer-section">
-                    <h6>Learn</h6>
-                    <ul>
-                        <li><a href="/blog/">Blog</a></li>
-                        <li><a href="/guides/">Guides</a></li>
-                        <li><a href="https://docs.labelbox.com" target="_blank">Docs</a></li>
-                        <li><a href="/faqs/">FAQs</a></li>
-                        <li><a href="/research/">Research</a></li>
-                        <li><a href="/product/model/foundry-models/">Models</a></li>
-                        <li><a href="/datasets/">Public datasets</a></li>
-                    </ul>
-                </div>
-
-                <!-- Company Section -->
-                <div class="footer-section">
-                    <h6>Company</h6>
-                    <ul>
-                        <li><a href="/company/about/">About</a></li>
-                        <li><a href="/company/security/">Privacy & Security</a></li>
-                        <li><a href="https://alignerr.com" target="_blank">Alignerr</a></li>
-                    </ul>
-                </div>
-
-                <!-- Data Factory Section -->
-                <div class="footer-section">
-                    <h6>The data factory</h6>
-                    <ul>
-                        <li><a href="/why-labelbox/">Why Quantumworks Lab</a></li>
-                        <li><a href="/services/labeling/">Labeling Services</a></li>
-                        <li><a href="/services/alignerr-connect/">Alignerr Connect</a></li>
-                        <li><a href="/model-foundry/">Model Foundry</a></li>
-                        <li><a href="/leaderboards/">Leaderboards</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <div class="footer-logo">
-                    <img src="static/images/favicon-v4-black.png" alt="Quantumworks Lab logo" loading="lazy" height="36" width="36">
-                </div>
-                <div class="footer-copyright">
-                    © Quantumworks Lab, Inc<br>
-                    We enable breakthroughs
-                </div>
-                <div class="footer-links">
-                    <a href="https://docs.labelbox.com/page/terms-of-service" target="_blank">Terms of Service</a>
-                    <div class="footer-divider"></div>
-                    <a href="https://docs.labelbox.com/page/privacy-notice" target="_blank">Privacy Notice</a>
-                    <div class="footer-divider"></div>
-                    <a href="https://docs.labelbox.com/page/copyright-dispute-policy" target="_blank">Copyright Dispute Policy</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+      m-auto flex flex-col gap-4 items-center justify-items-center text-center"><div class="Footer__FooterSection-sc-172m51x-0 cKNvnl flex flex-col gap-y-6 justify-center"><div class="w-160 m-auto pb-10"></div><h2 class="font-medium text-4xl sm:text-5xl lg:text-6xl  text-neutral-900 font-future">Try Quantumworks Lab today</h2><p class="text-neutral-500 font-medium  text-lg md:text-xl max-w-3xl m-auto">Get started for free or see how Quantumworks Lab can fit your specific needs by <a href="../../sales/index.html">requesting a demo</a></p></div><a href="https://app.labelbox.com/signup" class="group transition-all inline-flex justify-center items-center gap-[.5em] lb-button !outline-none focus:!outline-none focus-visible:!outline-none focus:!shadow-none focus:!drop-shadow-none active:shadow-none w-fit text-xl py-4 px-6 rounded-xl font-medium leading-[32px] bg-neutral-800 mix-blend-multiply hover:bg-black dark:bg-neutral-50 text-neutral-50 dark:text-neutral-900 mt-6" id="" target="_self" style="outline:0 !important">Start for free</a></section></div>
         <div class="footer-container">
             <div class="footer-content">
                 <!-- Product Section -->
@@ -550,6 +468,92 @@ const t={preserveBehavior:!1},e=e=>{if("string"==typeof e)return[e,t];const[n,r=
         }
         
           
-          </script><script src="../../../cdn.lr-in-prod.com/LogRocket.min.js" crossorigin="anonymous"></script></body>
+          </script><script src="../../../cdn.lr-in-prod.com/LogRocket.min.js" crossorigin="anonymous"></script>
+    
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- Data Factory Section -->
+                <div class="footer-section">
+                    <h6>The data factory</h6>
+                    <ul>
+                        <li><a href="/why-labelbox/">Why Quantumworks Lab</a></li>
+                        <li><a href="/services/labeling/">Labeling Services</a></li>
+                        <li><a href="/services/alignerr-connect/">Alignerr Connect</a></li>
+                        <li><a href="/model-foundry/">Model Foundry</a></li>
+                        <li><a href="/leaderboards/">Leaderboards</a></li>
+                    </ul>
+                </div>
+
+                <!-- Product Section -->
+                <div class="footer-section">
+                    <h6>Product</h6>
+                    <ul>
+                        <li><a href="/product/platform/">Platform</a></li>
+                        <li><a href="/product/model/foundry-models/">Model Foundry</a></li>
+                        <li><a href="/product-demos/">Product Demos</a></li>
+                        <li><a href="/recorded-demo/">Recorded Demo</a></li>
+                    </ul>
+                </div>
+
+                <!-- Solutions Section -->
+                <div class="footer-section">
+                    <h6>Solutions</h6>
+                    <ul>
+                        <li><a href="/solutions/computer-vision/">Computer Vision</a></li>
+                        <li><a href="/solutions/natural-language-processing/">Natural Language Processing</a></li>
+                        <li><a href="/solutions/complex-reasoning/">Complex Reasoning</a></li>
+                        <li><a href="/solutions/multimodal-reasoning/">Multimodal Reasoning</a></li>
+                        <li><a href="/solutions/coding-tasks/">Coding</a></li>
+                        <li><a href="/solutions/multilingual/">Multilingual</a></li>
+                        <li><a href="/solutions/text-to-audio/">Audio</a></li>
+                    </ul>
+                </div>
+
+                <!-- Learn Section (Resources) -->
+                <div class="footer-section">
+                    <h6>Learn</h6>
+                    <ul>
+                        <li><a href="/blog/">Blog</a></li>
+                        <li><a href="/guides/">Guides</a></li>
+                        <li><a href="https://docs.labelbox.com" target="_blank">Docs</a></li>
+                        <li><a href="/faqs/">FAQs</a></li>
+                        <li><a href="/research/">Research</a></li>
+                        <li><a href="/product/model/foundry-models/">Models</a></li>
+                        <li><a href="/datasets/">Public datasets</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company Section -->
+                <div class="footer-section">
+                    <h6>Company</h6>
+                    <ul>
+                        <li><a href="/company/about/">About</a></li>
+                        <li><a href="/company/security/">Privacy & Security</a></li>
+                        <li><a href="https://alignerr.com" target="_blank">Alignerr</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-logo">
+                    <img src="/static/images/favicon-v4-black.png" alt="Quantumworks Lab logo" loading="lazy" height="36" width="36">
+                </div>
+                <div class="footer-copyright">
+                    © Quantumworks Lab, Inc<br>
+                    We enable breakthroughs
+                </div>
+                <div class="footer-links">
+                    <a href="https://docs.labelbox.com/page/terms-of-service" target="_blank">Terms of Service</a>
+                    <div class="footer-divider"></div>
+                    <a href="https://docs.labelbox.com/page/privacy-notice" target="_blank">Privacy Notice</a>
+                    <div class="footer-divider"></div>
+                    <a href="https://docs.labelbox.com/page/copyright-dispute-policy" target="_blank">Copyright Dispute Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
 <!-- Mirrored from labelbox.com/blog/how-to-improve-ai-app-generators-and-prompt-to-app-with-rubric-evaluations/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 02 Aug 2025 10:47:05 GMT -->
 </html>
