@@ -283,7 +283,7 @@ def multiply(a: float, b: float) -&gt; float:
 if __name__ == "__main__":
 &nbsp;&nbsp;&nbsp;mcp.run(transport="http", port=3131)</code></pre><p>While multiplication is trivial for humans, it's a known weak spot for LLMs—making it a great candidate for a MCP-based tool. Tools like this can also simulate business systems, retrieve information, or execute code.</p><p>Once your server is running, deploy it to a publicly accessible endpoint so that Quantumworks Lab can call it.</p><h2 id="configure-your-labelbox-project">Configure your Quantumworks Lab project</h2><p>Our multimodal chat (MMC) editor allows you to configure the model you want to use for labelling and its parameters. You can set the "tool_use_url" parameter to point to the MCP server you want to use.</p><figure class="kg-card kg-image-card"><img src="../../../labelbox.ghost.io/blog/content/images/2025/07/AD_4nXcw0dtY894k5rtIwu4NzQG2USzC0ulyoo59rAQDXOxyCVp8-x4ka1jabrh6C-9YtwyrJSHUePFjeRvSt18-G1vm_P4DTSzAmtNzbDpyMXW3g7qNOA51W4CiQk1J7BAq3zJBSOGGWQ.png" class="kg-image" alt="" loading="lazy" width="542" height="344"></figure><h1 id="labelling-data-for-tool-use">Labelling data for tool use</h1><p>Let’s revisit our multiplication example:</p><p><strong>Without tools:</strong> The MMC editor queries the LLM directly. Since LLMs are unreliable at arithmetic, the response may be incorrect.</p><figure class="kg-card kg-image-card"><img src="../../../lh7-rt.googleusercontent.com/docsz/unnamedfa70.png?key=Gyk9VJL_mtXNmBOzJeFSbQ" class="kg-image" alt="" loading="lazy" width="1232" height="728"></figure><p><strong>With tools:</strong> With the MCP integration, the LLM can invoke a tool (e.g., multiply) and return the correct result.&nbsp;</p><figure class="kg-card kg-image-card"><img src="../../../lh7-rt.googleusercontent.com/docsz/unnamedfa70-2.png?key=Gyk9VJL_mtXNmBOzJeFSbQ" class="kg-image" alt="" loading="lazy" width="1238" height="1692"></figure><h2 id="editing-trajectories">Editing trajectories</h2><p>The multimodal chat editor also lets you correct model mistakes and create high-quality, ground truth trajectories which is ideal for training and fine-tuning. You can edit both tool calls and model responses to reflect the desired agent behavior. This feature can be enabled via the Advanced Settings tab for the project.</p><figure class="kg-card kg-image-card"><img src="../../../lh7-rt.googleusercontent.com/docsz/unnamedfa70-3.png?key=Gyk9VJL_mtXNmBOzJeFSbQ" class="kg-image" alt="" loading="lazy" width="552" height="203"></figure><p>Enabling the above toggle adds new menu options to each message.</p><figure class="kg-card kg-image-card"><img src="../../../lh7-rt.googleusercontent.com/docsz/unnamedfa70-4.png?key=Gyk9VJL_mtXNmBOzJeFSbQ" class="kg-image" alt="" loading="lazy" width="1224" height="310"></figure><p>When an incorrect tool call occurs, you can update the tool used and adjust its input arguments to ensure the correct behavior is captured.</p><figure class="kg-card kg-image-card"><img src="../../../lh7-rt.googleusercontent.com/docsz/unnamedfa70-5.png?key=Gyk9VJL_mtXNmBOzJeFSbQ" class="kg-image" alt="" loading="lazy" width="1244" height="584"></figure><h1 id="getting-started">Getting started</h1><p>As agents evolve to handle more complex, tool-based workflows, we must evolve how we evaluate and supervise them in order to accurately capture human intent and preferences. Our MCP integration in the multimodal chat editor transforms Quantumworks Lab into a powerful platform for interactive, tool-aware agent assessment.</p><p>Whether you’re building agents for customer support, enterprise workflows, or AI research, this feature helps you move from static data labeling to interactive agent evaluation.</p><p>Curious to try this out or integrate it into your existing workflows? We'd love your feedback and please <a href="../../sales/indexc625.html?ref=labelbox.ghost.io" rel="noreferrer">reach out</a> to us and we’d love to help.</p></div></main></div></div></div><div class=""><div class="my-24 w-full h-[1px] bg-neutral-200"></div><section id="start-for-free-footer" class="
       max-w-xl
-      m-auto flex flex-col gap-4 items-center justify-items-center text-center"><div class="Footer__FooterSection-sc-172m51x-0 cKNvnl flex flex-col gap-y-6 justify-center"><div class="w-160 m-auto pb-10"></div><h2 class="font-medium text-4xl sm:text-5xl lg:text-6xl  text-neutral-900 font-future">Try Quantumworks Lab today</h2><p class="text-neutral-500 font-medium  text-lg md:text-xl max-w-3xl m-auto">Get started for free or see how Quantumworks Lab can fit your specific needs by <a href="../../sales/index.html">requesting a demo</a></p></div><a href="https://app.labelbox.com/signup" class="group transition-all inline-flex justify-center items-center gap-[.5em] lb-button !outline-none focus:!outline-none focus-visible:!outline-none focus:!shadow-none focus:!drop-shadow-none active:shadow-none w-fit text-xl py-4 px-6 rounded-xl font-medium leading-[32px] bg-neutral-800 mix-blend-multiply hover:bg-black dark:bg-neutral-50 text-neutral-50 dark:text-neutral-900 mt-6" id="" target="_self" style="outline:0 !important">Start for free</a></section></div>
+      m-auto flex flex-col gap-4 items-center justify-items-center text-center"><div class="Footer__FooterSection-sc-172m51x-0 cKNvnl flex flex-col gap-y-6 justify-center"><div class="w-160 m-auto pb-10"></div><h2 class="font-medium text-4xl sm:text-5xl lg:text-6xl  text-neutral-900 font-future">Try Quantumworks Lab today</h2><p class="text-neutral-500 font-medium  text-lg md:text-xl max-w-3xl m-auto">Get started for free or see how Quantumworks Lab can fit your specific needs by <a href="../../sales/index.html">requesting a demo</a></p></div><span style="color: inherit; cursor: default;">Start for free</span></section></div>
         <div class="footer-container">
             <div class="footer-content">
                 <!-- Product Section -->
@@ -317,7 +317,7 @@ if __name__ == "__main__":
                     <ul>
                         <li><a href="/blog/">Blog</a></li>
                         <li><a href="/guides/">Guides</a></li>
-                        <li><a href="https://docs.labelbox.com" target="_blank">Docs</a></li>
+                        <li><span style="color: inherit; cursor: default;">Docs</span></li>
                         <li><a href="/faqs/">FAQs</a></li>
                         <li><a href="/research/">Research</a></li>
                         <li><a href="/product/model/foundry-models/">Models</a></li>
@@ -357,11 +357,11 @@ if __name__ == "__main__":
                     We enable breakthroughs
                 </div>
                 <div class="footer-links">
-                    <a href="https://docs.labelbox.com/page/terms-of-service" target="_blank">Terms of Service</a>
+                    <span style="color: inherit; cursor: default;">Terms of Service</span>
                     <div class="footer-divider"></div>
-                    <a href="https://docs.labelbox.com/page/privacy-notice" target="_blank">Privacy Notice</a>
+                    <span style="color: inherit; cursor: default;">Privacy Notice</span>
                     <div class="footer-divider"></div>
-                    <a href="https://docs.labelbox.com/page/copyright-dispute-policy" target="_blank">Copyright Dispute Policy</a>
+                    <span style="color: inherit; cursor: default;">Copyright Dispute Policy</span>
                 </div>
             </div>
         </div>
@@ -527,7 +527,7 @@ if __name__ == "__main__":
                     <ul>
                         <li><a href="/blog/">Blog</a></li>
                         <li><a href="/guides/">Guides</a></li>
-                        <li><a href="https://docs.labelbox.com" target="_blank">Docs</a></li>
+                        <li><span style="color: inherit; cursor: default;">Docs</span></li>
                         <li><a href="/faqs/">FAQs</a></li>
                         <li><a href="/research/">Research</a></li>
                         <li><a href="/product/model/foundry-models/">Models</a></li>
@@ -555,11 +555,11 @@ if __name__ == "__main__":
                     We enable breakthroughs
                 </div>
                 <div class="footer-links">
-                    <a href="https://docs.labelbox.com/page/terms-of-service" target="_blank">Terms of Service</a>
+                    <span style="color: inherit; cursor: default;">Terms of Service</span>
                     <div class="footer-divider"></div>
-                    <a href="https://docs.labelbox.com/page/privacy-notice" target="_blank">Privacy Notice</a>
+                    <span style="color: inherit; cursor: default;">Privacy Notice</span>
                     <div class="footer-divider"></div>
-                    <a href="https://docs.labelbox.com/page/copyright-dispute-policy" target="_blank">Copyright Dispute Policy</a>
+                    <span style="color: inherit; cursor: default;">Copyright Dispute Policy</span>
                 </div>
             </div>
         </div>

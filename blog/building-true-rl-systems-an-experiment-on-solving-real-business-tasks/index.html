@@ -277,7 +277,7 @@ const t={preserveBehavior:!1},e=e=>{if("string"==typeof e)return[e,t];const[n,r=
 <!--kg-card-end: html-->
 <p>The performance hierarchy was consistent across different environment difficulty levels and held up during out-of-sample testing on unseen product catalogs.</p><hr><h2 id="what-the-data-tells-us"><strong>What the data tells us</strong></h2><h3 id="rubric-engineering-provides-a-crucial-learning-signal"><strong>Rubric engineering provides a crucial learning signal</strong></h3><p>The jump from 18% to 42% success rate when adding rubric rewards validates a core hypothesis: agents need intermediate feedback to learn complex behaviors efficiently. Without it, they struggle to connect actions early in an episode to eventual outcomes.</p><h3 id="grpo-improves-exploration-quality"><strong>GRPO improves exploration quality</strong></h3><p>The additional boost from 42% to 65% success rate with GRPO demonstrates that exploration strategy matters enormously. Traditional single-action sampling left significant performance on the table.</p><h3 id="training-efficiency-compounds"><strong>Training efficiency compounds</strong></h3><p>Not only did the combined approach achieve better final performance, it got there faster. The 60% reduction in training time means these techniques aren't just more effective—they're more economical.</p><h3 id="behavior-quality-improves"><strong>Behavior quality improves</strong></h3><p>Beyond success rates, we observed qualitatively better agent behaviors:</p><ul><li>More systematic search strategies</li><li>Better handling of edge cases (stock outages, budget constraints)</li><li>More robust performance across different environment configurations</li><li>Clearer learning progression through intermediate skills</li></ul><hr><h2 id="practical-implementation-insights"><strong>Practical implementation insights</strong></h2><p>Through this proof of concept, we learned several practical lessons about implementing these techniques:</p><h3 id="rubric-design-matters"><strong>Rubric design matters</strong></h3><p>Not all rubric decompositions work equally well. Effective rubrics need:</p><ul><li><strong>Measurable components</strong> that can be objectively evaluated</li><li><strong>Progressive difficulty</strong> that creates natural learning curricula</li><li><strong>Business alignment</strong> with weights reflecting actual priorities</li><li><strong>Immediate feedback</strong> rather than delayed evaluation</li></ul><h3 id="grpo-requires-tuning"><strong>GRPO requires tuning</strong></h3><p>The group size (we used 6 candidates) and evaluation heuristics need optimization for each domain. Too few candidates limits exploration benefits; too many slows training.</p><h3 id="environment-complexity-should-scale"><strong>Environment complexity should scale</strong></h3><p>Starting with simpler versions and gradually increasing difficulty helped agents build foundational skills systematically.</p><hr><h2 id="broader-applications"><strong>Broader applications</strong></h2><p>While we tested on e-commerce, these results have implications for any complex business RL application:</p><ul><li><strong>Customer service automation</strong>: Rubrics for response quality, resolution effectiveness</li><li><strong>Supply chain optimization</strong>: Components for cost, speed, reliability</li><li><strong>Content recommendation</strong>: Metrics for relevance, diversity, engagement</li><li><strong>Financial trading</strong>: Factors for risk, return, compliance</li></ul><p>The key insight is that business tasks rarely have simple binary success criteria, they involve optimizing multiple competing objectives that can be measured and rewarded incrementally.</p><hr><h2 id="limitations-and-future-work"><strong>Limitations and future work</strong></h2><p>This proof of concept has several limitations worth acknowledging:</p><ul><li><strong>Single domain testing</strong>: We only validated on e-commerce tasks</li><li><strong>Limited scale</strong>: 200 episodes per method, though results were consistent</li><li><strong>Simplified environment</strong>: Real e-commerce has additional complexity that we didn't capture, (e.g. much more variance in buyer-seller markets, far larger product catalogs)&nbsp;</li><li><strong>Manual rubric design</strong>: We hand-crafted rubrics rather than learning them automatically</li></ul><p>Future experiments worth exploring:</p><ul><li>Cross-domain validation (customer service, logistics, etc.)</li><li>Automated rubric discovery techniques</li><li>Integration with other RL improvements (curriculum learning, meta-learning)</li><li>Longer-term training to understand convergence properties</li></ul><hr><h2 id="the-bottom-line"><strong>The bottom line</strong></h2><p>Our experiment provides concrete evidence that the RL community's intuitions about sparse rewards are correct, at least for complex business applications. Rubric-based reward engineering combined with improved exploration techniques like GRPO isn't just theoretically appealing; it delivers measurable improvements in both performance and training efficiency.</p><p>For organizations considering RL for business applications, the message is clear: don't default to sparse rewards. The upfront investment in rubric design and exploration strategy pays significant dividends in agent performance and training costs.</p><p>The techniques we tested aren't novel, but the validation on realistic business complexity helps bridge the gap between academic promise and practical deployment. Sometimes the most valuable experiments aren't about inventing new methods, but instead, proving that existing good ideas actually work in practice.</p><hr></div></main></div></div></div><div class=""><div class="my-24 w-full h-[1px] bg-neutral-200"></div><section id="start-for-free-footer" class="
       max-w-xl
-      m-auto flex flex-col gap-4 items-center justify-items-center text-center"><div class="Footer__FooterSection-sc-172m51x-0 cKNvnl flex flex-col gap-y-6 justify-center"><div class="w-160 m-auto pb-10"></div><h2 class="font-medium text-4xl sm:text-5xl lg:text-6xl  text-neutral-900 font-future">Try Quantumworks Lab today</h2><p class="text-neutral-500 font-medium  text-lg md:text-xl max-w-3xl m-auto">Get started for free or see how Quantumworks Lab can fit your specific needs by <a href="../../sales/index.html">requesting a demo</a></p></div><a href="https://app.labelbox.com/signup" class="group transition-all inline-flex justify-center items-center gap-[.5em] lb-button !outline-none focus:!outline-none focus-visible:!outline-none focus:!shadow-none focus:!drop-shadow-none active:shadow-none w-fit text-xl py-4 px-6 rounded-xl font-medium leading-[32px] bg-neutral-800 mix-blend-multiply hover:bg-black dark:bg-neutral-50 text-neutral-50 dark:text-neutral-900 mt-6" id="" target="_self" style="outline:0 !important">Start for free</a></section></div>
+      m-auto flex flex-col gap-4 items-center justify-items-center text-center"><div class="Footer__FooterSection-sc-172m51x-0 cKNvnl flex flex-col gap-y-6 justify-center"><div class="w-160 m-auto pb-10"></div><h2 class="font-medium text-4xl sm:text-5xl lg:text-6xl  text-neutral-900 font-future">Try Quantumworks Lab today</h2><p class="text-neutral-500 font-medium  text-lg md:text-xl max-w-3xl m-auto">Get started for free or see how Quantumworks Lab can fit your specific needs by <a href="../../sales/index.html">requesting a demo</a></p></div><span style="color: inherit; cursor: default;">Start for free</span></section></div>
         <div class="footer-container">
             <div class="footer-content">
                 <!-- Product Section -->
@@ -311,7 +311,7 @@ const t={preserveBehavior:!1},e=e=>{if("string"==typeof e)return[e,t];const[n,r=
                     <ul>
                         <li><a href="/blog/">Blog</a></li>
                         <li><a href="/guides/">Guides</a></li>
-                        <li><a href="https://docs.labelbox.com" target="_blank">Docs</a></li>
+                        <li><span style="color: inherit; cursor: default;">Docs</span></li>
                         <li><a href="/faqs/">FAQs</a></li>
                         <li><a href="/research/">Research</a></li>
                         <li><a href="/product/model/foundry-models/">Models</a></li>
@@ -351,11 +351,11 @@ const t={preserveBehavior:!1},e=e=>{if("string"==typeof e)return[e,t];const[n,r=
                     We enable breakthroughs
                 </div>
                 <div class="footer-links">
-                    <a href="https://docs.labelbox.com/page/terms-of-service" target="_blank">Terms of Service</a>
+                    <span style="color: inherit; cursor: default;">Terms of Service</span>
                     <div class="footer-divider"></div>
-                    <a href="https://docs.labelbox.com/page/privacy-notice" target="_blank">Privacy Notice</a>
+                    <span style="color: inherit; cursor: default;">Privacy Notice</span>
                     <div class="footer-divider"></div>
-                    <a href="https://docs.labelbox.com/page/copyright-dispute-policy" target="_blank">Copyright Dispute Policy</a>
+                    <span style="color: inherit; cursor: default;">Copyright Dispute Policy</span>
                 </div>
             </div>
         </div>
@@ -521,7 +521,7 @@ const t={preserveBehavior:!1},e=e=>{if("string"==typeof e)return[e,t];const[n,r=
                     <ul>
                         <li><a href="/blog/">Blog</a></li>
                         <li><a href="/guides/">Guides</a></li>
-                        <li><a href="https://docs.labelbox.com" target="_blank">Docs</a></li>
+                        <li><span style="color: inherit; cursor: default;">Docs</span></li>
                         <li><a href="/faqs/">FAQs</a></li>
                         <li><a href="/research/">Research</a></li>
                         <li><a href="/product/model/foundry-models/">Models</a></li>
@@ -549,11 +549,11 @@ const t={preserveBehavior:!1},e=e=>{if("string"==typeof e)return[e,t];const[n,r=
                     We enable breakthroughs
                 </div>
                 <div class="footer-links">
-                    <a href="https://docs.labelbox.com/page/terms-of-service" target="_blank">Terms of Service</a>
+                    <span style="color: inherit; cursor: default;">Terms of Service</span>
                     <div class="footer-divider"></div>
-                    <a href="https://docs.labelbox.com/page/privacy-notice" target="_blank">Privacy Notice</a>
+                    <span style="color: inherit; cursor: default;">Privacy Notice</span>
                     <div class="footer-divider"></div>
-                    <a href="https://docs.labelbox.com/page/copyright-dispute-policy" target="_blank">Copyright Dispute Policy</a>
+                    <span style="color: inherit; cursor: default;">Copyright Dispute Policy</span>
                 </div>
             </div>
         </div>

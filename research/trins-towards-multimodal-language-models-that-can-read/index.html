@@ -225,7 +225,7 @@ const t={preserveBehavior:!1},e=e=>{if("string"==typeof e)return[e,t];const[n,r=
 <link rel="stylesheet" href="fix-footer-visibility.css">
 </head><body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXF2T87" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><div id="__next"><main><div class="Layout__Wrapper-sc-jbj1sg-0 kDcKSx transition-all duration-300 ease-in undefined  overflow"><div class=""></div><div class="HeaderMobile__Outer-sc-1yu1mfn-0 hgDgWF"><div class="HeaderMobile__Wrapper-sc-1yu1mfn-1 iPVOAg lg:w-[88vw] max-w-6xl lg:max-w-8xl m-auto px-6"><a href="../../index.html"><img width="106" height="24" alt="logo" src="../../static/images/logo-v4.svg"/></a><div class="BurgerIcon__Wrapper-sc-1rg1iu4-0 jsdymq"><div id="one"></div><div id="two"></div><div id="three"></div></div></div></div><main class="id__ImageModal-sc-obz6gi-1 ekqZbR"><div id="image-viewer"><span class="close">×</span><img class="modal-content" id="full-image"/></div></main><div class="py-12 lg:w-[88vw] max-w-6xl lg:max-w-8xl m-auto px-6"><div class="grid grid-cols-12 "><div class="col-span-12 md:col-span-3 lg:col-span-2"><div class="sticky top-24"><img src="../../static/images/guide.svg" class="h-10"/><a href="../index.html" class="flex text-md align-items-center mt-6"><img src="../../static/images/leftarrow.svg" class="img-fluid mr-2"/>All posts</a><main class="id__TocContainer-sc-obz6gi-2 iNvWif toc-container py-8"><div class="  js-toc"></div></main></div></div><div class="col-span-12 md:col-span-9 lg:col-span-10"><div class="md:px-24 mb-12"><div class=""><h1 class="mt-4 text-2xl md:text-5xl font-bold max-w-3xl mb-12">TRINS: Towards Multimodal Language Models that Can Read</h1></div><img class="img-fluid rounded-lg mx-auto" src="../../../labelbox-research.ghost.io/content/images/2025/07/Screenshot-2025-07-02-at-3.12.03-PM.png"/></div><main class="id__PostContentWrapper-sc-obz6gi-0 cmbwoS md:px-24"><div class="content js-toc-content"><p>This paper introduces TRINS, a large-scale dataset specifically designed to improve multimodal models' ability to "read" — that is, to interpret, reason about, and generate language grounded in both visual scenes and embedded text (like signage, documents, and labels). The dataset contains 39,153 carefully annotated, text-rich images, each paired with long-form captions (averaging 65 words) and over 102,000 question–answer pairs designed to evaluate reading comprehension within images.</p><p>Most existing multimodal datasets (e.g., COCO, TextVQA) provide relatively short captions or sparse annotations. TRINS stands out by densely capturing both visual context and embedded text, making it especially useful for training models that need to perform OCR-like reasoning or multimodal understanding where text is a critical part of the image content.</p><p>To showcase the power of this dataset, the authors also introduce LaRA (Language–vision Reading Assistant), a compact and efficient multimodal model trained on TRINS. Despite being much smaller than models like GPT-4V or Gemini, LaRA achieves state-of-the-art performance on multiple benchmarks involving text-rich image understanding, including both captioning and visual question answering.</p><hr><h3 id="how-labelbox-was-used"><strong>How Quantumworks Lab Was Used</strong></h3><p>The success of TRINS hinges on the quality and density of its annotations — and Quantumworks Lab played a central role in enabling this at scale.</p><ul><li><strong>Human-in-the-loop annotation at scale</strong>:<br>The authors used Quantumworks Lab to annotate 40,576 images, involving 2,079 hours of human labeling and 159 hours of human review. Annotators were instructed to describe both the visual content and the embedded textual content, with attention to attributes like font style, color, position, and meaning.</li><li><strong>Structured annotation guidelines</strong>:<br>Quantumworks Lab was used to create and enforce detailed ontologies and annotation policies, helping annotators capture high-quality data that included:<ul><li>What is happening in the image.</li><li>What the text says.</li><li>Why the text is important.</li><li>Optional deeper reasoning or interpretation.</li></ul></li><li><strong>Quality assurance workflows</strong>:<br>After initial annotation, TRINS employed automated checks — including OCR vs. human text comparisons — and manual reviews via Quantumworks Lab to flag low-quality or incomplete examples. These entries were either rejected or routed for re-annotation, ensuring consistency and accuracy throughout the dataset.</li><li><strong>Enabling long-form, expressive annotations</strong>:<br>Quantumworks Lab’s flexible interface made it easier to collect detailed, multi-sentence captions and diverse QA pairs, a sharp contrast to most datasets that rely on much shorter labels.</li></ul><hr><h3 id="further-research">Further research</h3><p>TRINS represents a major leap forward in multimodal data quality and scale, especially in domains that require deep understanding of images with embedded text (e.g., street scenes, product images, forms). With Quantumworks Lab, the researchers were able to create a dataset that is not only large, but also rich, expressive, and verified, enabling the training of smaller yet more capable models like LaRA.</p><p>This combination of advanced human annotation and machine-efficient modeling signals a promising direction for building language–vision models that can truly read and reason. You can read the full paper <a href="https://arxiv.org/pdf/2406.06730?ref=labelbox-research.ghost.io" rel="noreferrer">here</a>.</p></div></main></div></div></div><div class=""><div class="my-24 w-full h-[1px] bg-neutral-200"></div><section id="start-for-free-footer" class="
       max-w-xl
-      m-auto flex flex-col gap-4 items-center justify-items-center text-center"><div class="Footer__FooterSection-sc-172m51x-0 cKNvnl flex flex-col gap-y-6 justify-center"><div class="w-160 m-auto pb-10"></div><h2 class="font-medium text-4xl sm:text-5xl lg:text-6xl  text-neutral-900 font-future">Try Quantumworks Lab today</h2><p class="text-neutral-500 font-medium  text-lg md:text-xl max-w-3xl m-auto">Get started for free or see how Quantumworks Lab can fit your specific needs by <a href="../../sales/index.html">requesting a demo</a></p></div><a href="https://app.labelbox.com/signup" class="group transition-all inline-flex justify-center items-center gap-[.5em] lb-button !outline-none focus:!outline-none focus-visible:!outline-none focus:!shadow-none focus:!drop-shadow-none active:shadow-none w-fit text-xl py-4 px-6 rounded-xl font-medium leading-[32px] bg-neutral-800 mix-blend-multiply hover:bg-black dark:bg-neutral-50 text-neutral-50 dark:text-neutral-900 mt-6" id="" target="_self" style="outline:0 !important">Start for free</a></section></div>
+      m-auto flex flex-col gap-4 items-center justify-items-center text-center"><div class="Footer__FooterSection-sc-172m51x-0 cKNvnl flex flex-col gap-y-6 justify-center"><div class="w-160 m-auto pb-10"></div><h2 class="font-medium text-4xl sm:text-5xl lg:text-6xl  text-neutral-900 font-future">Try Quantumworks Lab today</h2><p class="text-neutral-500 font-medium  text-lg md:text-xl max-w-3xl m-auto">Get started for free or see how Quantumworks Lab can fit your specific needs by <a href="../../sales/index.html">requesting a demo</a></p></div><span style="color: inherit; cursor: default;">Start for free</span></section></div>
         <div class="footer-container">
             <div class="footer-content">
                 <!-- Product Section -->
@@ -259,7 +259,7 @@ const t={preserveBehavior:!1},e=e=>{if("string"==typeof e)return[e,t];const[n,r=
                     <ul>
                         <li><a href="/blog/">Blog</a></li>
                         <li><a href="/guides/">Guides</a></li>
-                        <li><a href="https://docs.labelbox.com" target="_blank">Docs</a></li>
+                        <li><span style="color: inherit; cursor: default;">Docs</span></li>
                         <li><a href="/faqs/">FAQs</a></li>
                         <li><a href="/research/">Research</a></li>
                         <li><a href="/product/model/foundry-models/">Models</a></li>
@@ -299,11 +299,11 @@ const t={preserveBehavior:!1},e=e=>{if("string"==typeof e)return[e,t];const[n,r=
                     We enable breakthroughs
                 </div>
                 <div class="footer-links">
-                    <a href="https://docs.labelbox.com/page/terms-of-service" target="_blank">Terms of Service</a>
+                    <span style="color: inherit; cursor: default;">Terms of Service</span>
                     <div class="footer-divider"></div>
-                    <a href="https://docs.labelbox.com/page/privacy-notice" target="_blank">Privacy Notice</a>
+                    <span style="color: inherit; cursor: default;">Privacy Notice</span>
                     <div class="footer-divider"></div>
-                    <a href="https://docs.labelbox.com/page/copyright-dispute-policy" target="_blank">Copyright Dispute Policy</a>
+                    <span style="color: inherit; cursor: default;">Copyright Dispute Policy</span>
                 </div>
             </div>
         </div>
@@ -469,7 +469,7 @@ const t={preserveBehavior:!1},e=e=>{if("string"==typeof e)return[e,t];const[n,r=
                     <ul>
                         <li><a href="/blog/">Blog</a></li>
                         <li><a href="/guides/">Guides</a></li>
-                        <li><a href="https://docs.labelbox.com" target="_blank">Docs</a></li>
+                        <li><span style="color: inherit; cursor: default;">Docs</span></li>
                         <li><a href="/faqs/">FAQs</a></li>
                         <li><a href="/research/">Research</a></li>
                         <li><a href="/product/model/foundry-models/">Models</a></li>
@@ -497,11 +497,11 @@ const t={preserveBehavior:!1},e=e=>{if("string"==typeof e)return[e,t];const[n,r=
                     We enable breakthroughs
                 </div>
                 <div class="footer-links">
-                    <a href="https://docs.labelbox.com/page/terms-of-service" target="_blank">Terms of Service</a>
+                    <span style="color: inherit; cursor: default;">Terms of Service</span>
                     <div class="footer-divider"></div>
-                    <a href="https://docs.labelbox.com/page/privacy-notice" target="_blank">Privacy Notice</a>
+                    <span style="color: inherit; cursor: default;">Privacy Notice</span>
                     <div class="footer-divider"></div>
-                    <a href="https://docs.labelbox.com/page/copyright-dispute-policy" target="_blank">Copyright Dispute Policy</a>
+                    <span style="color: inherit; cursor: default;">Copyright Dispute Policy</span>
                 </div>
             </div>
         </div>
