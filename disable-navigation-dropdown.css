@@ -1,79 +1,63 @@
-/* Disable Community and Support dropdown options in Learn navigation */
+/* Disable only Community and Support dropdown options in Learn navigation */
 
-/* Hide links containing /community or /support in the URL */
-a[href*="/community"],
-a[href*="/support"],
-a[href*="community"],
-a[href*="support"] {
+/* Hide only Community and Support links in navigation dropdowns */
+nav a[href*="/community"]:not(.footer-section a),
+nav a[href*="/support"]:not(.footer-section a),
+header a[href*="/community"]:not(.footer-section a),
+header a[href*="/support"]:not(.footer-section a),
+[role="navigation"] a[href*="/community"]:not(.footer-section a),
+[role="navigation"] a[href*="/support"]:not(.footer-section a) {
     display: none !important;
 }
 
-/* Hide any navigation items that might contain these links */
-nav a[href*="/community"],
-nav a[href*="/support"],
-header a[href*="/community"],
-header a[href*="/support"],
-[role="navigation"] a[href*="/community"],
-[role="navigation"] a[href*="/support"] {
+/* Hide parent list items containing only Community or Support links in dropdowns */
+nav li:has(> a[href*="/community"]):not(.footer-section li),
+nav li:has(> a[href*="/support"]):not(.footer-section li),
+header li:has(> a[href*="/community"]):not(.footer-section li),
+header li:has(> a[href*="/support"]):not(.footer-section li) {
     display: none !important;
 }
 
-/* Hide parent list items containing Community or Support links */
-li:has(> a[href*="/community"]),
-li:has(> a[href*="/support"]),
-li:has(a[href*="/community"]),
-li:has(a[href*="/support"]) {
+/* Target dropdown menus specifically - hide only Community and Support items */
+[class*="dropdown"] li:has(> a[href*="/community"]),
+[class*="dropdown"] li:has(> a[href*="/support"]),
+[class*="Dropdown"] li:has(> a[href*="/community"]),
+[class*="Dropdown"] li:has(> a[href*="/support"]),
+[class*="menu"] li:has(> a[href*="/community"]),
+[class*="menu"] li:has(> a[href*="/support"]),
+[class*="Menu"] li:has(> a[href*="/community"]),
+[class*="Menu"] li:has(> a[href*="/support"]) {
     display: none !important;
 }
 
-/* Hide parent divs containing Community or Support links */
-div:has(> a[href*="/community"]):not(.footer-section),
-div:has(> a[href*="/support"]):not(.footer-section) {
+/* Hide dividers that appear immediately after Community or Support items */
+nav li:has(> a[href*="/community"]) + li.divider,
+nav li:has(> a[href*="/support"]) + li.divider,
+nav li:has(> a[href*="/community"]) + hr,
+nav li:has(> a[href*="/support"]) + hr {
     display: none !important;
 }
 
-/* Target dropdown menus specifically */
-[class*="dropdown"] li:has(a[href*="/community"]),
-[class*="dropdown"] li:has(a[href*="/support"]),
-[class*="Dropdown"] li:has(a[href*="/community"]),
-[class*="Dropdown"] li:has(a[href*="/support"]),
-[class*="menu"] li:has(a[href*="/community"]),
-[class*="menu"] li:has(a[href*="/support"]),
-[class*="Menu"] li:has(a[href*="/community"]),
-[class*="Menu"] li:has(a[href*="/support"]) {
+/* Target Learn dropdown specifically - hide only Community and Support */
+[data-dropdown="learn"] li:has(> a[href*="/community"]),
+[data-dropdown="learn"] li:has(> a[href*="/support"]),
+[aria-label*="Learn"] li:has(> a[href*="/community"]),
+[aria-label*="Learn"] li:has(> a[href*="/support"]) {
     display: none !important;
 }
 
-/* Hide dividers after removed items */
-li:has(a[href*="/community"]) + li.divider,
-li:has(a[href*="/support"]) + li.divider,
-li:has(a[href*="/community"]) + hr,
-li:has(a[href*="/support"]) + hr {
+/* For Next.js style components - target only Community and Support within dropdowns */
+[class*="Learn"][class*="Dropdown"] a[href*="/community"],
+[class*="Learn"][class*="Dropdown"] a[href*="/support"],
+[class*="learn"][class*="dropdown"] a[href*="/community"],
+[class*="learn"][class*="dropdown"] a[href*="/support"] {
     display: none !important;
 }
 
-/* Target Learn-specific dropdowns */
-[data-dropdown="learn"] a[href*="/community"],
-[data-dropdown="learn"] a[href*="/support"],
-[aria-label*="Learn"] a[href*="/community"],
-[aria-label*="Learn"] a[href*="/support"] {
-    display: none !important;
-}
-
-/* Hide parent containers in Learn dropdowns */
-[data-dropdown="learn"] li:has(a[href*="/community"]),
-[data-dropdown="learn"] li:has(a[href*="/support"]),
-[aria-label*="Learn"] li:has(a[href*="/community"]),
-[aria-label*="Learn"] li:has(a[href*="/support"]) {
-    display: none !important;
-}
-
-/* Fallback: Hide any element with Community or Support in specific attributes */
-[data-nav*="community"],
-[data-nav*="support"],
-[data-item*="community"],
-[data-item*="support"],
-[class*="community-link"],
-[class*="support-link"] {
+/* Hide parent containers only if they contain Community or Support links */
+[class*="Learn"][class*="Dropdown"] li:has(> a[href*="/community"]),
+[class*="Learn"][class*="Dropdown"] li:has(> a[href*="/support"]),
+[class*="learn"][class*="dropdown"] li:has(> a[href*="/community"]),
+[class*="learn"][class*="dropdown"] li:has(> a[href*="/support"]) {
     display: none !important;
 }
