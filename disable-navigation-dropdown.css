@@ -61,3 +61,74 @@ nav li:has(> a[href*="/support"]) + hr {
 [class*="learn"][class*="dropdown"] li:has(> a[href*="/support"]) {
     display: none !important;
 }
+
+/* Disable Login and Sign up buttons but keep text visible */
+a[href*="login"],
+a[href*="signin"],
+a[href*="sign-in"],
+a[href*="signup"],
+a[href*="sign-up"],
+a[href*="/login"],
+a[href*="/signin"],
+a[href*="/sign-in"],
+a[href*="/signup"],
+a[href*="/sign-up"],
+[data-action="login"],
+[data-action="signup"],
+[data-action="sign-in"],
+[data-action="sign-up"] {
+    pointer-events: none !important;
+    cursor: default !important;
+    opacity: 0.5 !important;
+    text-decoration: none !important;
+}
+
+/* Target buttons with text matching login/signup patterns */
+button[class*="login"],
+button[class*="signin"],
+button[class*="signup"],
+button[class*="sign-up"],
+a[class*="login-btn"],
+a[class*="signin-btn"],
+a[class*="signup-btn"],
+a[class*="sign-up-btn"] {
+    pointer-events: none !important;
+    cursor: default !important;
+    opacity: 0.5 !important;
+}
+
+/* Specific targeting for common button classes */
+.lb-button[href*="login"],
+.lb-button[href*="signup"],
+.btn[href*="login"],
+.btn[href*="signup"],
+.button[href*="login"],
+.button[href*="signup"] {
+    pointer-events: none !important;
+    cursor: default !important;
+    opacity: 0.5 !important;
+}
+
+/* Remove hover effects on disabled buttons */
+a[href*="login"]:hover,
+a[href*="signup"]:hover,
+button[class*="login"]:hover,
+button[class*="signup"]:hover,
+.lb-button[href*="login"]:hover,
+.lb-button[href*="signup"]:hover {
+    background-color: inherit !important;
+    color: inherit !important;
+    transform: none !important;
+}
+
+/* Disable "Start for free" text specifically */
+span:has-text("Start for free") {
+    pointer-events: none !important;
+    cursor: default !important;
+    opacity: 0.5 !important;
+}
+
+/* Target spans that contain specific text (fallback approach) */
+span[style*="cursor: default"] {
+    opacity: 0.5 !important;
+}
