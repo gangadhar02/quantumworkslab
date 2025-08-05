@@ -62,7 +62,7 @@ nav li:has(> a[href*="/support"]) + hr {
     display: none !important;
 }
 
-/* Disable Login and Sign up buttons but keep text visible */
+/* Disable ALL login and signup related elements */
 a[href*="login"],
 a[href*="signin"],
 a[href*="sign-in"],
@@ -73,10 +73,21 @@ a[href*="/signin"],
 a[href*="/sign-in"],
 a[href*="/signup"],
 a[href*="/sign-up"],
+a[href*="app.labelbox"],
+a[href*="app.quantumworks"],
 [data-action="login"],
 [data-action="signup"],
 [data-action="sign-in"],
-[data-action="sign-up"] {
+[data-action="sign-up"],
+[data-testid*="login"],
+[data-testid*="signin"],
+[data-testid*="signup"],
+[data-test*="login"],
+[data-test*="signin"],
+[data-test*="signup"],
+[id*="login"],
+[id*="signin"],
+[id*="signup"] {
     pointer-events: none !important;
     cursor: default !important;
     opacity: 0.5 !important;
@@ -91,7 +102,13 @@ button[class*="sign-up"],
 a[class*="login-btn"],
 a[class*="signin-btn"],
 a[class*="signup-btn"],
-a[class*="sign-up-btn"] {
+a[class*="sign-up-btn"],
+button[class*="Login"],
+button[class*="SignIn"],
+button[class*="SignUp"],
+a[class*="Login"],
+a[class*="SignIn"],
+a[class*="SignUp"] {
     pointer-events: none !important;
     cursor: default !important;
     opacity: 0.5 !important;
@@ -100,10 +117,13 @@ a[class*="sign-up-btn"] {
 /* Specific targeting for common button classes */
 .lb-button[href*="login"],
 .lb-button[href*="signup"],
+.lb-button[href*="app."],
 .btn[href*="login"],
 .btn[href*="signup"],
+.btn[href*="app."],
 .button[href*="login"],
-.button[href*="signup"] {
+.button[href*="signup"],
+.button[href*="app."] {
     pointer-events: none !important;
     cursor: default !important;
     opacity: 0.5 !important;
@@ -112,23 +132,61 @@ a[class*="sign-up-btn"] {
 /* Remove hover effects on disabled buttons */
 a[href*="login"]:hover,
 a[href*="signup"]:hover,
+a[href*="app."]:hover,
 button[class*="login"]:hover,
 button[class*="signup"]:hover,
 .lb-button[href*="login"]:hover,
-.lb-button[href*="signup"]:hover {
+.lb-button[href*="signup"]:hover,
+.lb-button[href*="app."]:hover {
     background-color: inherit !important;
     color: inherit !important;
     transform: none !important;
 }
 
-/* Disable "Start for free" text specifically */
-span:has-text("Start for free") {
+/* Target "Start for free" text specifically */
+span[style*="cursor: default"] {
+    opacity: 0.5 !important;
+}
+
+/* Disable all links containing login-related text in navigation */
+nav a,
+header a,
+[role="navigation"] a,
+.navigation a,
+.navbar a,
+.header a {
+    pointer-events: auto;
+}
+
+nav a[onclick*="login"],
+header a[onclick*="login"],
+nav a[onclick*="signin"],
+header a[onclick*="signin"],
+nav a[onclick*="signup"],
+header a[onclick*="signup"] {
     pointer-events: none !important;
     cursor: default !important;
     opacity: 0.5 !important;
 }
 
-/* Target spans that contain specific text (fallback approach) */
-span[style*="cursor: default"] {
+/* Target any element with login/signup in onclick handlers */
+[onclick*="login"],
+[onclick*="signin"],
+[onclick*="signup"],
+[onclick*="Login"],
+[onclick*="SignIn"],
+[onclick*="SignUp"] {
+    pointer-events: none !important;
+    cursor: default !important;
+    opacity: 0.5 !important;
+}
+
+/* Disable interactive elements that might be login/signup related */
+[role="button"][aria-label*="login" i],
+[role="button"][aria-label*="sign in" i],
+[role="button"][aria-label*="signup" i],
+[role="button"][aria-label*="sign up" i] {
+    pointer-events: none !important;
+    cursor: default !important;
     opacity: 0.5 !important;
 }
