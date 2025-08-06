@@ -181,30 +181,27 @@ const t={preserveBehavior:!1},e=e=>{if("string"==typeof e)return[e,t];const[n,r=
             }
         }
         
-        /* Hide the announcement ribbon - target specific element */
-        /* Target the specific announcement div by class */
-        .Layout__ContentWrapper-sc-jbj1sg-1.EVvjg {
-            display: none !important;
-        }
-        
-        /* Target the Layout__ContentWrapper class specifically */
-        .Layout__ContentWrapper-sc-jbj1sg-1 {
-            display: none !important;
-        }
-        
-        /* Target elements with banner-body class */
+        /* Hide ONLY the announcement ribbon - not the main content */
+        /* Target only the banner-body text */
         .banner-body {
             display: none !important;
         }
         
-        /* Hide the parent container by its classes */
-        .col-span-12.font-medium.text-center.flex-row {
+        /* Hide parent of banner-body ONLY if it's not the main wrapper */
+        div.flex:has(.banner-body) {
             display: none !important;
         }
         
-        /* Hide any div that has the exact class combination */
-        div.flex.justify-content-center.align-items-center.col-span-12.font-medium.text-center.flex-row {
-            display: none !important;
+        /* Ensure main content wrapper stays visible */
+        .Layout__Wrapper-sc-jbj1sg-0 {
+            display: block !important;
+            visibility: visible !important;
+        }
+        
+        /* Ensure all main content stays visible */
+        main {
+            display: block !important;
+            visibility: visible !important;
         }
         
         /* Target black bars that are likely announcements */

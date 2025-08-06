@@ -1,64 +1,22 @@
 /* Hide announcement/promotional ribbon at the top of the page */
 
-/* Target the specific announcement element by its exact classes */
-.Layout__ContentWrapper-sc-jbj1sg-1.EVvjg {
-    display: none !important;
-}
-
-/* Target element containing "Meet Evaluation Studio" text */
-p:contains("Meet Evaluation Studio") {
-    display: none !important;
-}
-
-/* Hide the parent container of the banner */
-.col-span-12.font-medium.text-center.flex-row {
-    display: none !important;
-}
-
-/* Target elements with banner-body class and hide their parent */
+/* ONLY hide elements with banner-body class - this is the announcement text */
 .banner-body {
     display: none !important;
 }
 
-/* Hide the entire flex container that contains the announcement */
-div.flex.justify-content-center.align-items-center.col-span-12 {
-    /* Only hide if it contains banner-body */
+/* Hide the parent of banner-body if it's a small container */
+div:has(.banner-body):not(.Layout__Wrapper-sc-jbj1sg-0) {
+    max-height: 0;
+    overflow: hidden;
 }
 
-div.flex.justify-content-center.align-items-center.col-span-12:has(.banner-body) {
+/* Target black background announcement bars specifically */
+div[style*="background-color: rgb(0, 0, 0)"]:has(.banner-body) {
     display: none !important;
 }
 
-/* Alternative: hide by targeting the parent of elements with specific text */
-div:has(p:contains("Meet Evaluation Studio")) {
-    display: none !important;
-}
-
-/* Target the announcement by its structural position and content */
-div.col-span-12:has(span:has(small:contains("New"))):has(p:contains("Meet Evaluation Studio")) {
-    display: none !important;
-}
-
-/* Hide black background bars */
-body > div[style*="background-color: rgb(0, 0, 0)"] {
-    display: none !important;
-}
-
-body > div[style*="background: #000"] {
-    display: none !important;
-}
-
-/* Hide any container that has both "New" badge and banner text */
-div:has(span:has(small:contains("New"))):has(p.banner-body) {
-    display: none !important;
-}
-
-/* Simple approach - hide by the unique combination of classes */
-.Layout__ContentWrapper-sc-jbj1sg-1 {
-    display: none !important;
-}
-
-/* Hide parent containers of announcement bars */
-div:has(.Layout__ContentWrapper-sc-jbj1sg-1) {
+/* Hide announcement containers that have the New badge AND banner text */
+div.flex:has(span:has(small:contains("New"))):has(.banner-body) {
     display: none !important;
 }
