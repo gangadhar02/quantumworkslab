@@ -1,45 +1,68 @@
 /* Hide announcement/promotional ribbon at the top of the page */
 
-/* Target common ribbon/banner class patterns */
-[class*="ribbon"], 
-[class*="announcement"], 
-[class*="banner"]:not(.banner-image),
-[class*="notification-bar"],
-[class*="promo-bar"],
-[id*="ribbon"],
-[id*="announcement"] {
+/* Target the specific black announcement bar */
+body > div[style*="background-color: rgb(0, 0, 0)"] {
     display: none !important;
 }
 
-/* Target elements containing the specific text */
-div:has(> span:contains("New")):has(a[href*="evaluation"]),
-div:has(> span:contains("Meet Evaluation Studio")) {
+body > div[style*="background-color: #000000"] {
     display: none !important;
 }
 
-/* Target fixed positioned elements at the top that might be ribbons */
-div[class*="fixed"]:has(a[href*="evaluation"]),
-div[style*="position: fixed"]:has(a[href*="evaluation"]) {
+body > div[style*="background-color: #000"] {
     display: none !important;
 }
 
-/* Hide any top-level divs that appear before the main navigation */
-body > div:first-child:not(#__next),
-#__next > div:first-child:not(main):not([class*="Header"]):not([class*="header"]),
-header > div:first-child:has(a):not([class*="Header"]):not([class*="header"]),
-nav > div:first-child:has(a):not([class*="Header"]):not([class*="header"]) {
+body > div[style*="background: rgb(0, 0, 0)"] {
     display: none !important;
 }
 
-/* Target sticky/fixed elements at the top of the page */
-div[class*="sticky top-0"]:has(a[href*="blog"]),
-div[class*="fixed top-0"]:has(a[href*="blog"]) {
+body > div[style*="background: #000000"] {
     display: none !important;
 }
 
-/* Target any element with specific announcement-related z-index values */
-div[style*="z-index: 999"],
-div[style*="z-index: 9999"],
-div[style*="z-index: 99999"] {
+body > div[style*="background: #000"] {
+    display: none !important;
+}
+
+/* Target announcement bars with specific positioning */
+div[style*="position: fixed"][style*="top: 0px"][style*="z-index"] {
+    /* Check if it's likely an announcement (not navigation) based on height */
+    height: auto !important;
+}
+
+div[style*="position: fixed"][style*="top: 0px"][style*="height: 40px"] {
+    display: none !important;
+}
+
+div[style*="position: fixed"][style*="top: 0px"][style*="height: 48px"] {
+    display: none !important;
+}
+
+div[style*="position: fixed"][style*="top: 0px"][style*="height: 56px"] {
+    display: none !important;
+}
+
+/* Hide elements by class that are clearly announcements */
+.announcement-bar,
+.promo-bar,
+.notification-bar,
+.ribbon-bar {
+    display: none !important;
+}
+
+/* Hide elements containing announcement text - using attribute selectors as fallback */
+[class*="announcement-"]:not([class*="navigation"]):not([class*="header"]) {
+    display: none !important;
+}
+
+/* Target the first child of body if it's not the main app container */
+body > div:first-child:not(#__next):not(.app):not(.root) {
+    /* Only hide if it's a thin bar */
+    max-height: 60px;
+    overflow: hidden;
+}
+
+body > div:first-child:not(#__next):not(.app):not(.root)[style*="height"] {
     display: none !important;
 }

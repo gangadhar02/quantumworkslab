@@ -181,23 +181,32 @@ const t={preserveBehavior:!1},e=e=>{if("string"==typeof e)return[e,t];const[n,r=
             }
         }
         
-        /* Hide the announcement ribbon */
-        [class*="ribbon"], 
-        [class*="announcement"], 
-        [class*="banner"]:not(.banner-image),
-        [id*="ribbon"],
-        [id*="announcement"],
-        div[class*="fixed"]:has(a[href*="evaluation"]),
-        div:has(> span:contains("New")):has(a[href*="evaluation"]) {
+        /* Hide the announcement ribbon - browser compatible selectors */
+        /* Target black bars that are likely announcements */
+        body > div[style*="background-color: rgb(0, 0, 0)"] {
             display: none !important;
         }
         
-        /* Additional selectors to catch dynamically generated ribbons */
-        body > div:first-child:not(#__next),
-        #__next > div:first-child:not(main),
-        header > div:first-child:has(a),
-        nav > div:first-child:has(a) {
+        body > div[style*="background: #000"] {
             display: none !important;
+        }
+        
+        /* Hide fixed bars at the very top that aren't navigation */
+        div[style*="position: fixed"][style*="top: 0"][style*="height: 40px"],
+        div[style*="position: fixed"][style*="top: 0"][style*="height: 48px"],
+        div[style*="position: fixed"][style*="top: 0"][style*="height: 56px"] {
+            display: none !important;
+        }
+        
+        /* Ensure navigation stays visible */
+        .HeaderMobile__Outer-sc-1yu1mfn-0,
+        .HeaderMobile__Wrapper-sc-1yu1mfn-1,
+        [class*="Header"],
+        [class*="header"],
+        [class*="Nav"],
+        [class*="nav"] {
+            display: flex !important;
+            visibility: visible !important;
         }
     </style><link rel="stylesheet" href="/disable-js-footer.css">
 <link rel="stylesheet" href="fix-footer-visibility.css">
