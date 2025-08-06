@@ -1,23 +1,46 @@
 /* Hide announcement/promotional ribbon at the top of the page */
 
-/* Target the specific black announcement bar */
+/* Target the specific announcement element by its exact classes */
+.Layout__ContentWrapper-sc-jbj1sg-1.EVvjg {
+    display: none !important;
+}
+
+/* Target element containing "Meet Evaluation Studio" text */
+p:contains("Meet Evaluation Studio") {
+    display: none !important;
+}
+
+/* Hide the parent container of the banner */
+.col-span-12.font-medium.text-center.flex-row {
+    display: none !important;
+}
+
+/* Target elements with banner-body class and hide their parent */
+.banner-body {
+    display: none !important;
+}
+
+/* Hide the entire flex container that contains the announcement */
+div.flex.justify-content-center.align-items-center.col-span-12 {
+    /* Only hide if it contains banner-body */
+}
+
+div.flex.justify-content-center.align-items-center.col-span-12:has(.banner-body) {
+    display: none !important;
+}
+
+/* Alternative: hide by targeting the parent of elements with specific text */
+div:has(p:contains("Meet Evaluation Studio")) {
+    display: none !important;
+}
+
+/* Target the announcement by its structural position and content */
+div.col-span-12:has(span:has(small:contains("New"))):has(p:contains("Meet Evaluation Studio")) {
+    display: none !important;
+}
+
+/* Hide black background bars */
 body > div[style*="background-color: rgb(0, 0, 0)"] {
-    display: none !important;
-}
-
-body > div[style*="background-color: #000000"] {
-    display: none !important;
-}
-
-body > div[style*="background-color: #000"] {
-    display: none !important;
-}
-
-body > div[style*="background: rgb(0, 0, 0)"] {
-    display: none !important;
-}
-
-body > div[style*="background: #000000"] {
     display: none !important;
 }
 
@@ -25,44 +48,17 @@ body > div[style*="background: #000"] {
     display: none !important;
 }
 
-/* Target announcement bars with specific positioning */
-div[style*="position: fixed"][style*="top: 0px"][style*="z-index"] {
-    /* Check if it's likely an announcement (not navigation) based on height */
-    height: auto !important;
-}
-
-div[style*="position: fixed"][style*="top: 0px"][style*="height: 40px"] {
+/* Hide any container that has both "New" badge and banner text */
+div:has(span:has(small:contains("New"))):has(p.banner-body) {
     display: none !important;
 }
 
-div[style*="position: fixed"][style*="top: 0px"][style*="height: 48px"] {
+/* Simple approach - hide by the unique combination of classes */
+.Layout__ContentWrapper-sc-jbj1sg-1 {
     display: none !important;
 }
 
-div[style*="position: fixed"][style*="top: 0px"][style*="height: 56px"] {
-    display: none !important;
-}
-
-/* Hide elements by class that are clearly announcements */
-.announcement-bar,
-.promo-bar,
-.notification-bar,
-.ribbon-bar {
-    display: none !important;
-}
-
-/* Hide elements containing announcement text - using attribute selectors as fallback */
-[class*="announcement-"]:not([class*="navigation"]):not([class*="header"]) {
-    display: none !important;
-}
-
-/* Target the first child of body if it's not the main app container */
-body > div:first-child:not(#__next):not(.app):not(.root) {
-    /* Only hide if it's a thin bar */
-    max-height: 60px;
-    overflow: hidden;
-}
-
-body > div:first-child:not(#__next):not(.app):not(.root)[style*="height"] {
+/* Hide parent containers of announcement bars */
+div:has(.Layout__ContentWrapper-sc-jbj1sg-1) {
     display: none !important;
 }

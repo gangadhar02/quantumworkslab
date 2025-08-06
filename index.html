@@ -181,20 +181,38 @@ const t={preserveBehavior:!1},e=e=>{if("string"==typeof e)return[e,t];const[n,r=
             }
         }
         
-        /* Hide the announcement ribbon - browser compatible selectors */
+        /* Hide the announcement ribbon - target specific element */
+        /* Target the specific announcement div by class */
+        .Layout__ContentWrapper-sc-jbj1sg-1.EVvjg {
+            display: none !important;
+        }
+        
+        /* Target the Layout__ContentWrapper class specifically */
+        .Layout__ContentWrapper-sc-jbj1sg-1 {
+            display: none !important;
+        }
+        
+        /* Target elements with banner-body class */
+        .banner-body {
+            display: none !important;
+        }
+        
+        /* Hide the parent container by its classes */
+        .col-span-12.font-medium.text-center.flex-row {
+            display: none !important;
+        }
+        
+        /* Hide any div that has the exact class combination */
+        div.flex.justify-content-center.align-items-center.col-span-12.font-medium.text-center.flex-row {
+            display: none !important;
+        }
+        
         /* Target black bars that are likely announcements */
         body > div[style*="background-color: rgb(0, 0, 0)"] {
             display: none !important;
         }
         
         body > div[style*="background: #000"] {
-            display: none !important;
-        }
-        
-        /* Hide fixed bars at the very top that aren't navigation */
-        div[style*="position: fixed"][style*="top: 0"][style*="height: 40px"],
-        div[style*="position: fixed"][style*="top: 0"][style*="height: 48px"],
-        div[style*="position: fixed"][style*="top: 0"][style*="height: 56px"] {
             display: none !important;
         }
         
