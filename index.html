@@ -200,27 +200,56 @@ const t={preserveBehavior:!1},e=e=>{if("string"==typeof e)return[e,t];const[n,r=
 <link rel="stylesheet" href="hide-ribbon.css">
 </head><body>
 <script>
-// Hide the announcement ribbon after page loads
+// Disable clicking on the announcement ribbon
 document.addEventListener('DOMContentLoaded', function() {
     // Find elements containing the announcement text
     const bannerElements = document.querySelectorAll('.banner-body');
     bannerElements.forEach(function(element) {
         if (element.textContent.includes('Meet Evaluation Studio')) {
-            // Hide the parent container of the announcement
+            // Find the parent container
             const parent = element.closest('.col-span-12');
             if (parent) {
-                parent.style.display = 'none';
+                // Remove all hyperlinks in the announcement
+                const links = parent.querySelectorAll('a');
+                links.forEach(function(link) {
+                    // Remove href and make it unclickable
+                    link.removeAttribute('href');
+                    link.style.cursor = 'default';
+                    link.style.pointerEvents = 'none';
+                    link.style.textDecoration = 'none';
+                    
+                    // Remove any click event listeners
+                    link.onclick = function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        return false;
+                    };
+                });
+                
+                // Also make the entire announcement unclickable
+                parent.style.pointerEvents = 'none';
+                parent.style.cursor = 'default';
+                
+                // But keep the text visible
+                const textElements = parent.querySelectorAll('p, span, small');
+                textElements.forEach(function(el) {
+                    el.style.pointerEvents = 'auto';
+                    el.style.cursor = 'default';
+                });
             }
         }
     });
     
-    // Also try to find and hide by text content
-    const allElements = document.querySelectorAll('p');
-    allElements.forEach(function(element) {
-        if (element.textContent.includes('Meet Evaluation Studio')) {
-            const container = element.closest('div.flex');
-            if (container && container.classList.contains('col-span-12')) {
-                container.style.display = 'none';
+    // Also disable any buttons in the announcement
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(function(button) {
+        if (button.textContent.includes('Read') && button.closest('.col-span-12')) {
+            const container = button.closest('.col-span-12');
+            if (container.querySelector('.banner-body')) {
+                button.disabled = true;
+                button.style.pointerEvents = 'none';
+                button.style.cursor = 'default';
+                button.style.opacity = '0.5';
             }
         }
     });

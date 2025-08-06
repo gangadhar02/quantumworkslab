@@ -1,8 +1,4 @@
-/* Hide announcement/promotional ribbon at the top of the page */
+/* Disable clicking on the announcement ribbon */
 
-/* ONLY hide the specific banner text */
-p.banner-body:contains("Meet Evaluation Studio") {
-    display: none !important;
-}
-
-/* That's it - nothing else to avoid breaking the page */
+/* This CSS file is kept empty since we're using JavaScript to disable the links */
+/* The JavaScript in index.html handles removing the hyperlink functionality */
