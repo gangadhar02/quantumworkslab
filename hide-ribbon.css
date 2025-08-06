@@ -1,0 +1,45 @@
+/* Hide announcement/promotional ribbon at the top of the page */
+
+/* Target common ribbon/banner class patterns */
+[class*="ribbon"], 
+[class*="announcement"], 
+[class*="banner"]:not(.banner-image),
+[class*="notification-bar"],
+[class*="promo-bar"],
+[id*="ribbon"],
+[id*="announcement"] {
+    display: none !important;
+}
+
+/* Target elements containing the specific text */
+div:has(> span:contains("New")):has(a[href*="evaluation"]),
+div:has(> span:contains("Meet Evaluation Studio")) {
+    display: none !important;
+}
+
+/* Target fixed positioned elements at the top that might be ribbons */
+div[class*="fixed"]:has(a[href*="evaluation"]),
+div[style*="position: fixed"]:has(a[href*="evaluation"]) {
+    display: none !important;
+}
+
+/* Hide any top-level divs that appear before the main navigation */
+body > div:first-child:not(#__next),
+#__next > div:first-child:not(main):not([class*="Header"]):not([class*="header"]),
+header > div:first-child:has(a):not([class*="Header"]):not([class*="header"]),
+nav > div:first-child:has(a):not([class*="Header"]):not([class*="header"]) {
+    display: none !important;
+}
+
+/* Target sticky/fixed elements at the top of the page */
+div[class*="sticky top-0"]:has(a[href*="blog"]),
+div[class*="fixed top-0"]:has(a[href*="blog"]) {
+    display: none !important;
+}
+
+/* Target any element with specific announcement-related z-index values */
+div[style*="z-index: 999"],
+div[style*="z-index: 9999"],
+div[style*="z-index: 99999"] {
+    display: none !important;
+}
